@@ -37,13 +37,13 @@ sed -i '/openwrt_releaseopenwrt_release/d' package/*/default-settings/files/zzz-
 sed -i 's/fast_open="0"/fast_open="1"/g' package/*/luci-app-passwall/root/usr/share/passwall/subscription.sh
 sed -i 's/root::0:0:99999:7:::/root:$1$j4K9hIy0$M6mkXcqVVa3.kaZEsy8PX1:18255:0:99999:7:::/g' package/base-files/files/etc/shadow
 mkdir package/network/config/firewall/patches
-wget -P package/network/config/firewall/patches/ --no-check-certificate https://github.com/coolsnowwolf/lede/raw/master/package/network/config/firewall/patches/fullconenat.patch
-sed -i "s/('Drop invalid packets'));/('Drop invalid packets'));\n o = s.option(form.Flag, 'fullcone', _('Enable FullCone NAT'));/g" package/feeds/*/luci-app-firewall/htdocs/luci-static/resources/view/firewall/zones.js
+wget -P package/network/config/firewall/patches/ --no-check-certificate https://raw.githubusercontent.com/LGA1150/fullconenat-fw3-patch/master/fullconenat.patch
+#sed -i "s/('Drop invalid packets'));/('Drop invalid packets'));\n o = s.option(form.Flag, 'fullcone', _('Enable FullCone NAT'));/g" package/feeds/*/luci-app-firewall/htdocs/luci-static/resources/view/firewall/zones.js
 sed -i "s/option forward		REJECT/option forward		REJECT\n	option fullcone	1/g" package/network/config/firewall/files/firewall.config
-#cd feeds/luci
-#wget --no-check-certificate https://github.com/LGA1150/fullconenat-fw3-patch/raw/master/luci.patch
-#git apply luci.patch
-#cd -
+cd feeds/luci
+wget --no-check-certificate https://github.com/LGA1150/fullconenat-fw3-patch/raw/master/luci.patch
+git apply luci.patch
+cd -
 function getversion(){
 basename $(curl -Ls -o /dev/null -w %{url_effective} https://github.com/$1/$2/releases/latest) | sed "s/^v//g"
 }
