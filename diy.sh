@@ -33,7 +33,7 @@ sed -i '/dhcp.lan.dhcpv6/d' package/*/default-settings/files/zzz-default-setting
 sed -i 's/fast_open="0"/fast_open="1"/g' package/*/luci-app-passwall/root/usr/share/passwall/subscription.sh
 sed -i 's/root::0:0:99999:7:::/root:$1$j4K9hIy0$M6mkXcqVVa3.kaZEsy8PX1:18255:0:99999:7:::/g' package/base-files/files/etc/shadow
 mkdir package/network/config/firewall/patches
-wget -P package/network/config/firewall/patches/ --no-check-certificate https://github.com/LGA1150/fullconenat-fw3-patch/raw/master/fullconenat.patch
+wget -P package/network/config/firewall/patches/ --no-check-certificate https://github.com/coolsnowwolf/lede/raw/master/package/network/config/firewall/patches/fullconenat.patch
 #cd feeds/luci
 #wget --no-check-certificate https://github.com/LGA1150/fullconenat-fw3-patch/raw/master/luci.patch
 #git apply luci.patch
