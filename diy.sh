@@ -23,7 +23,6 @@ sed -i '$i uci set network.wan.ifname=eth2' package/*/default-settings/files/zzz
 sed -i '$i uci set network.wan.username=555875jyyg' package/*/default-settings/files/zzz-default-settings
 sed -i '$i uci set network.wan.password=700156' package/*/default-settings/files/zzz-default-settings
 sed -i '$i uci commit network' package/*/default-settings/files/zzz-default-settings
-sed -i "s/option forward		REJECT/option forward		REJECT\n	option fullcone	1/g" package/network/config/firewall/files/firewall.config
 #sed -i '$i sed -i "$i iptables -t nat -A zone_wan_prerouting -j FULLCONENAT" /etc/firewall.user' package/*/default-settings/files/zzz-default-settings
 #sed -i '$i sed -i "$i iptables -t nat -A zone_wan_postrouting -j FULLCONENAT" /etc/firewall.user' package/*/default-settings/files/zzz-default-settings
 sed -i '$a /etc/smartdns' package/base-files/files/lib/upgrade/keep.d/base-files-essential
@@ -35,6 +34,7 @@ sed -i 's/root::0:0:99999:7:::/root:$1$j4K9hIy0$M6mkXcqVVa3.kaZEsy8PX1:18255:0:9
 mkdir package/network/config/firewall/patches
 wget -P package/network/config/firewall/patches/ --no-check-certificate https://github.com/coolsnowwolf/lede/raw/master/package/network/config/firewall/patches/fullconenat.patch
 sed -i "s/('Drop invalid packets'));/('Drop invalid packets'));\n o = s.option(form.Flag, 'fullcone', _('Enable FullCone NAT'));/g" package/feeds/*/luci-app-firewall/htdocs/luci-static/resources/view/firewall/zones.js
+sed -i "s/option forward		REJECT/option forward		REJECT\n	option fullcone	1/g" package/network/config/firewall/files/firewall.config
 #cd feeds/luci
 #wget --no-check-certificate https://github.com/LGA1150/fullconenat-fw3-patch/raw/master/luci.patch
 #git apply luci.patch
