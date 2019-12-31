@@ -23,6 +23,8 @@ sed -i '$i uci set network.wan.ifname=eth2' package/*/default-settings/files/zzz
 sed -i '$i uci set network.wan.username=555875jyyg' package/*/default-settings/files/zzz-default-settings
 sed -i '$i uci set network.wan.password=700156' package/*/default-settings/files/zzz-default-settings
 sed -i '$i uci commit network' package/*/default-settings/files/zzz-default-settings
+#sed -i '$i sed -i "$i iptables -t nat -A zone_wan_prerouting -j FULLCONENAT" /etc/firewall.user' package/*/default-settings/files/zzz-default-settings
+#sed -i '$i sed -i "$i iptables -t nat -A zone_wan_postrouting -j FULLCONENAT" /etc/firewall.user' package/*/default-settings/files/zzz-default-settings
 sed -i '$a /etc/smartdns' package/base-files/files/lib/upgrade/keep.d/base-files-essential
 find target/linux/x86 -name "config*" | xargs -i sed -i '$a # CONFIG_WLAN is not set' {}
 find target/linux/x86 -name "config*" | xargs -i sed -i '$a # CONFIG_WIRELESS is not set' {}
@@ -32,9 +34,9 @@ sed -i 's/fast_open="0"/fast_open="1"/g' package/*/luci-app-passwall/root/usr/sh
 sed -i 's/root::0:0:99999:7:::/root:$1$j4K9hIy0$M6mkXcqVVa3.kaZEsy8PX1:18255:0:99999:7:::/g' package/base-files/files/etc/shadow
 mkdir package/network/config/firewall/patches
 wget -P package/network/config/firewall/patches/ --no-check-certificate https://github.com/LGA1150/fullconenat-fw3-patch/raw/master/fullconenat.patch
-cd feeds/luci
-wget --no-check-certificate https://github.com/LGA1150/fullconenat-fw3-patch/raw/master/luci.patch
-git apply luci.patch
+#cd feeds/luci
+#wget --no-check-certificate https://github.com/LGA1150/fullconenat-fw3-patch/raw/master/luci.patch
+#git apply luci.patch
 cd -
 function getversion(){
 basename $(curl -Ls -o /dev/null -w %{url_effective} https://github.com/$1/$2/releases/latest) | sed "s/^v//g"
