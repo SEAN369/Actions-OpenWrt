@@ -70,9 +70,6 @@ jobs:
         ../$DIY_SH
         make defconfig
 
-   # - name: SSH connection to Actions
-   #   uses: P3TERX/debugger-action@master
-
     - name: Download package
       run: |
         cd openwrt && make download -j1 V=s
@@ -90,12 +87,17 @@ jobs:
       run: |
         cd openwrt
         make -j1 V=s
+        
+    - name: SSH connection to Actions
+      if: failure()
+      uses: P3TERX/debugger-action@master
 
     - name: Organize files
       if: always()
       run: |
         mkdir ipk && mv -f openwrt/bin/packages/*/* ./ipk
-        mkdir firmware && find openwrt/bin/targets/*/*/* -maxdepth 0 -name "*combined-squashfs*" -or -name "config.seed" | xargs -i mv -f {} ./firmware/
+        mkdir firmware && find openwrt/bin/targets/*/*/* -maxdepth 0 -name "*combined-squashfs*" | xargs -i mv -f {} ./firmware/
+        mv openwrt/.config  ./firmware/
 
     - name: Upload bin directory
       uses: actions/upload-artifact@master
