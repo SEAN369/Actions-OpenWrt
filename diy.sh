@@ -23,6 +23,7 @@ sed -i '$i uci set network.wan.ifname=eth2' package/*/default-settings/files/zzz
 sed -i '$i uci set network.wan.username=555875jyyg' package/*/default-settings/files/zzz-default-settings
 sed -i '$i uci set network.wan.password=700156' package/*/default-settings/files/zzz-default-settings
 sed -i '$i uci commit network' package/*/default-settings/files/zzz-default-settings
+sed -i "s/option forward		REJECT/option forward		REJECT\n	option fullcone	1/g" package/network/config/firewall/files/firewall.config
 #sed -i '$i sed -i "$i iptables -t nat -A zone_wan_prerouting -j FULLCONENAT" /etc/firewall.user' package/*/default-settings/files/zzz-default-settings
 #sed -i '$i sed -i "$i iptables -t nat -A zone_wan_postrouting -j FULLCONENAT" /etc/firewall.user' package/*/default-settings/files/zzz-default-settings
 sed -i '$a /etc/smartdns' package/base-files/files/lib/upgrade/keep.d/base-files-essential
