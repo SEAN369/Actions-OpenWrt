@@ -37,7 +37,7 @@ wget -P package/network/config/firewall/patches/ --no-check-certificate https://
 #cd feeds/luci
 #wget --no-check-certificate https://github.com/LGA1150/fullconenat-fw3-patch/raw/master/luci.patch
 #git apply luci.patch
-cd -
+#cd -
 function getversion(){
 basename $(curl -Ls -o /dev/null -w %{url_effective} https://github.com/$1/$2/releases/latest) | sed "s/^v//g"
 }
