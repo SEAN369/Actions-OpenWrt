@@ -5,6 +5,11 @@ mkdir package/jia && cd package/jia
 git clone https://github.com/rufengsuixing/luci-app-adguardhome
 git clone https://github.com/jerrykuku/luci-theme-argon
 git clone https://github.com/pymumu/luci-app-smartdns
+git clone https://github.com/LGA1150/openwrt-fullconenat
+git clone https://github.com/mchome/luci-app-vlmcsd
+git clone https://github.com/mchome/openwrt-vlmcsd vlmcsd
+svn co https://github.com/maxlicheng/luci-app-unblockmusic/tree/master/UnblockNeteaseMusic
+svn co https://github.com/maxlicheng/luci-app-unblockmusic/tree/master/app luci-app-unblockmusic
 svn co https://github.com/pymumu/smartdns/trunk/package/openwrt smartdns
 svn co https://github.com/project-openwrt/openwrt/trunk/package/jsda/luci-app-advancedsetting
 svn co https://github.com/Lienol/openwrt-package/trunk/lienol/luci-app-passwall
