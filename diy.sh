@@ -13,9 +13,9 @@ svn co https://github.com/maxlicheng/luci-app-unblockmusic/tree/master/UnblockNe
 svn co https://github.com/maxlicheng/luci-app-unblockmusic/tree/master/app luci-app-unblockmusic
 svn co https://github.com/pymumu/smartdns/trunk/package/openwrt smartdns
 svn co https://github.com/project-openwrt/openwrt/trunk/package/jsda/luci-app-advancedsetting
-svn co https://github.com/Lienol/openwrt-package/trunk/lienol/luci-app-passwall
-svn co https://github.com/Lienol/openwrt-package/trunk/package/shadowsocksr-libev
-svn co https://github.com/Lienol/openwrt-package/trunk/package/tcping
+#svn co https://github.com/Lienol/openwrt-package/trunk/lienol/luci-app-passwall
+#svn co https://github.com/Lienol/openwrt-package/trunk/package/shadowsocksr-libev
+#svn co https://github.com/Lienol/openwrt-package/trunk/package/tcping
 cd -
 sed -i '/^$/d' package/*/default-settings/files/zzz-default-settings
 sed -i '$i uci set luci.main.mediaurlbase=/luci-static/bootstrap' package/*/default-settings/files/zzz-default-settings
@@ -31,8 +31,8 @@ sed -i '$i uci commit network' package/*/default-settings/files/zzz-default-sett
 #sed -i '$i sed -i "$i iptables -t nat -A zone_wan_prerouting -j FULLCONENAT" /etc/firewall.user' package/*/default-settings/files/zzz-default-settings
 #sed -i '$i sed -i "$i iptables -t nat -A zone_wan_postrouting -j FULLCONENAT" /etc/firewall.user' package/*/default-settings/files/zzz-default-settings
 sed -i '$a /etc/smartdns' package/base-files/files/lib/upgrade/keep.d/base-files-essential
-find target/linux/x86 -name "config*" | xargs -i sed -i '$a # CONFIG_WLAN is not set' {}
-find target/linux/x86 -name "config*" | xargs -i sed -i '$a # CONFIG_WIRELESS is not set' {}
+#find target/linux/x86 -name "config*" | xargs -i sed -i '$a # CONFIG_WLAN is not set' {}
+#find target/linux/x86 -name "config*" | xargs -i sed -i '$a # CONFIG_WIRELESS is not set' {}
 sed -i '/openwrt_release/d' package/*/default-settings/files/zzz-default-settings
 sed -i 's/fast_open="0"/fast_open="1"/g' package/*/luci-app-passwall/root/usr/share/passwall/subscription.sh
 sed -i 's/root::0:0:99999:7:::/root:$1$j4K9hIy0$M6mkXcqVVa3.kaZEsy8PX1:18255:0:99999:7:::/g' package/base-files/files/etc/shadow
