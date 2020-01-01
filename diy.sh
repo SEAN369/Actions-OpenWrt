@@ -28,12 +28,13 @@ sed -i '$i uci set network.wan.ifname=eth2' package/*/default-settings/files/zzz
 sed -i '$i uci set network.wan.username=555875jyyg' package/*/default-settings/files/zzz-default-settings
 sed -i '$i uci set network.wan.password=700156' package/*/default-settings/files/zzz-default-settings
 sed -i '$i uci commit network' package/*/default-settings/files/zzz-default-settings
+sed -i '/openwrt_release/d' package/*/default-settings/files/zzz-default-settings
 #sed -i '$i sed -i "$i iptables -t nat -A zone_wan_prerouting -j FULLCONENAT" /etc/firewall.user' package/*/default-settings/files/zzz-default-settings
 #sed -i '$i sed -i "$i iptables -t nat -A zone_wan_postrouting -j FULLCONENAT" /etc/firewall.user' package/*/default-settings/files/zzz-default-settings
 sed -i '$a /etc/smartdns' package/base-files/files/lib/upgrade/keep.d/base-files-essential
+sed -i "s/option bbr '0'/option bbr '1'/g" package/*/luci-app-flowoffload/root/etc/config/flowoffload
 find target/linux/x86 -name "config*" | xargs -i sed -i '$a # CONFIG_WLAN is not set' {}
 find target/linux/x86 -name "config*" | xargs -i sed -i '$a # CONFIG_WIRELESS is not set' {}
-sed -i '/openwrt_release/d' package/*/default-settings/files/zzz-default-settings
 sed -i 's/fast_open="0"/fast_open="1"/g' package/*/luci-app-passwall/root/usr/share/passwall/subscription.sh
 sed -i 's/root::0:0:99999:7:::/root:$1$j4K9hIy0$M6mkXcqVVa3.kaZEsy8PX1:18255:0:99999:7:::/g' package/base-files/files/etc/shadow
 mkdir package/network/config/firewall/patches
