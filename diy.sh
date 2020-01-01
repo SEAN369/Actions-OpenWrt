@@ -41,8 +41,7 @@ wget -P package/network/config/firewall/patches/ --no-check-certificate https://
 #sed -i "s/('Drop invalid packets'));/('Drop invalid packets'));\n o = s.option(form.Flag, 'fullcone', _('Enable FullCone NAT'));/g" package/feeds/*/luci-app-firewall/htdocs/luci-static/resources/view/firewall/zones.js
 sed -i "s/option forward		REJECT/option forward		REJECT\n	option fullcone	1/g" package/network/config/firewall/files/firewall.config
 cd feeds/luci
-wget --no-check-certificate https://github.com/LGA1150/fullconenat-fw3-patch/raw/master/luci.patch
-git apply luci.patch
+wget -O- --no-check-certificate https://github.com/LGA1150/fullconenat-fw3-patch/raw/master/luci.patch | git apply
 cd -
 function getversion(){
 basename $(curl -Ls -o /dev/null -w %{url_effective} https://github.com/$1/$2/releases/latest) | sed "s/^v//g"
