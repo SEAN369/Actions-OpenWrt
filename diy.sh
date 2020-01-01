@@ -6,7 +6,7 @@ git clone https://github.com/rufengsuixing/luci-app-adguardhome
 git clone https://github.com/jerrykuku/luci-theme-argon
 git clone https://github.com/pymumu/luci-app-smartdns
 git clone https://github.com/LGA1150/openwrt-fullconenat
-git clone https://github.com/mchome/luci-app-vlmcsd
+# git clone https://github.com/mchome/luci-app-vlmcsd
 git clone https://github.com/mchome/openwrt-vlmcsd vlmcsd
 svn co https://github.com/maxlicheng/luci-app-unblockmusic/tree/master/UnblockNeteaseMusic
 svn co https://github.com/maxlicheng/luci-app-unblockmusic/tree/master/app luci-app-unblockmusic
