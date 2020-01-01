@@ -1,7 +1,7 @@
 #!/bin/bash
 #=================================================
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean package/lean
-mkdir package/jia && cd package/jia
+mkdir package/custom && cd package/custom
 git clone https://github.com/rufengsuixing/luci-app-adguardhome
 git clone https://github.com/jerrykuku/luci-theme-argon
 git clone https://github.com/pymumu/luci-app-smartdns
@@ -52,7 +52,7 @@ sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=$(getversion nondanee UnblockNeteaseMusic
 sed -i 's/PACKAGE_libcap:libcap/libcap/g' feeds/packages/net/samba4/Makefile
 
 # sed -i 's/ucichanges = ucichanges + #j/for k, l in pairs(j) do	  for m, n in pairs(l) do   ucichanges = ucichanges + 1;   end     end/g' package/*/luci-theme-argon/luasrc/view/themes/argon/header.htm
-find package/jia package/lean ! -path "*shadowsocksr-libev*" -name "Makefile" | xargs -i sed -i "s/PKG_SOURCE_VERSION:=[0-9a-z]\{15,\}/PKG_SOURCE_VERSION:=latest/g" {}
+find package/custom package/lean ! -path "*shadowsocksr-libev*" -name "Makefile" | xargs -i sed -i "s/PKG_SOURCE_VERSION:=[0-9a-z]\{15,\}/PKG_SOURCE_VERSION:=latest/g" {}
 sed -i 's/ip6tables //g' include/target.mk
 sed -i 's/odhcpd-ipv6only //g' include/target.mk
 #sed -i 's/odhcp6c //g' include/target.mk
