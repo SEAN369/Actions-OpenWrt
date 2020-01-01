@@ -8,12 +8,12 @@ git clone https://github.com/pymumu/luci-app-smartdns
 git clone https://github.com/LGA1150/openwrt-fullconenat
 # git clone https://github.com/mchome/luci-app-vlmcsd
 git clone https://github.com/mchome/openwrt-vlmcsd vlmcsd
+git clone https://github.com/KFERMercer/openwrt-v2ray v2ray
 svn co https://github.com/maxlicheng/luci-app-unblockmusic/tree/master/UnblockNeteaseMusic
 svn co https://github.com/maxlicheng/luci-app-unblockmusic/tree/master/app luci-app-unblockmusic
 svn co https://github.com/pymumu/smartdns/trunk/package/openwrt smartdns
 svn co https://github.com/project-openwrt/openwrt/trunk/package/jsda/luci-app-advancedsetting
 svn co https://github.com/Lienol/openwrt-package/trunk/lienol/luci-app-passwall
-svn co https://github.com/Lienol/openwrt-package/trunk/package/v2ray
 svn co https://github.com/Lienol/openwrt-package/trunk/package/shadowsocksr-libev
 svn co https://github.com/Lienol/openwrt-package/trunk/package/tcping
 cd -
@@ -46,13 +46,14 @@ cd -
 function getversion(){
 basename $(curl -Ls -o /dev/null -w %{url_effective} https://github.com/$1/$2/releases/latest) | sed "s/^v//g"
 }
-sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=$(getversion netdata netdata)/g" package/feeds/*/netdata/Makefile
-sed -i "s/PKG_HASH:=.*/PKG_HASH:=skip/g" package/feeds/*/netdata/Makefile
+sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=$(getversion v2ray v2ray-core)/g" package/feeds/v2ray/Makefile
+sed -i "s/PKG_HASH:=.*/PKG_HASH:=skip/g" package/feeds/v2ray/Makefile
+
 sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=$(getversion nondanee UnblockNeteaseMusic)/g" package/*/UnblockNeteaseMusic/Makefile
 sed -i 's/PACKAGE_libcap:libcap/libcap/g' feeds/packages/net/samba4/Makefile
 
 # sed -i 's/ucichanges = ucichanges + #j/for k, l in pairs(j) do	  for m, n in pairs(l) do   ucichanges = ucichanges + 1;   end     end/g' package/*/luci-theme-argon/luasrc/view/themes/argon/header.htm
-find package/custom package/lean ! -path "*shadowsocksr-libev*" -name "Makefile" | xargs -i sed -i "s/PKG_SOURCE_VERSION:=[0-9a-z]\{15,\}/PKG_SOURCE_VERSION:=latest/g" {}
+find package/feeds package/lean -maxdepth 2 ! -path "*shadowsocksr-libev*" -name "Makefile" | xargs -i sed -i "s/PKG_SOURCE_VERSION:=[0-9a-z]\{15,\}/PKG_SOURCE_VERSION:=latest/g" {}
 sed -i 's/ip6tables //g' include/target.mk
 sed -i 's/odhcpd-ipv6only //g' include/target.mk
 sed -i 's/odhcp6c //g' include/target.mk
