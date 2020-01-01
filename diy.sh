@@ -53,7 +53,7 @@ sed -i 's/PACKAGE_libcap:libcap/libcap/g' feeds/packages/net/samba4/Makefile
 
 # sed -i 's/ucichanges = ucichanges + #j/for k, l in pairs(j) do	  for m, n in pairs(l) do   ucichanges = ucichanges + 1;   end     end/g' package/*/luci-theme-argon/luasrc/view/themes/argon/header.htm
 find package/custom package/lean ! -path "*shadowsocksr-libev*" -name "Makefile" | xargs -i sed -i "s/PKG_SOURCE_VERSION:=[0-9a-z]\{15,\}/PKG_SOURCE_VERSION:=latest/g" {}
-sed -i 's/ip6tables //g' include/target.mk
-sed -i 's/odhcpd-ipv6only //g' include/target.mk
+#sed -i 's/ip6tables //g' include/target.mk
+#sed -i 's/odhcpd-ipv6only //g' include/target.mk
 #sed -i 's/odhcp6c //g' include/target.mk
 sed -i 's/$(VERSION) &&/$(VERSION) ;/g' include/download.mk
