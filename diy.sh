@@ -14,7 +14,6 @@ svn co https://github.com/maxlicheng/luci-app-unblockmusic/tree/master/app luci-
 svn co https://github.com/pymumu/smartdns/trunk/package/openwrt smartdns
 svn co https://github.com/project-openwrt/openwrt/trunk/package/jsda/luci-app-advancedsetting
 svn co https://github.com/Lienol/openwrt-package/trunk/lienol/luci-app-passwall
-svn co https://github.com/Lienol/openwrt-package/trunk/package/shadowsocksr-libev
 svn co https://github.com/Lienol/openwrt-package/trunk/package/tcping
 cd -
 sed -i '/^$/d' package/*/default-settings/files/zzz-default-settings
