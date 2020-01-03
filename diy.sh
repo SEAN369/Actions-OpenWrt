@@ -34,7 +34,9 @@ sed -i '$a /etc/smartdns' package/base-files/files/lib/upgrade/keep.d/base-files
 sed -i "s/option bbr '0'/option bbr '1'/g" package/*/luci-app-flowoffload/root/etc/config/flowoffload
 find target/linux/x86 -name "config*" | xargs -i sed -i '$a # CONFIG_WLAN is not set' {}
 find target/linux/x86 -name "config*" | xargs -i sed -i '$a # CONFIG_WIRELESS is not set' {}
-sed -i 's/fast_open="0"/fast_open="1"/g' package/*/luci-app-passwall/root/usr/share/passwall/subscription.sh
+#sed -i 's/fast_open="0"/fast_open="1"/g' package/*/luci-app-passwall/root/usr/share/passwall/subscription.sh
+sed -i '/switch_enable/d' package/*/luci-app-ssr-plus/root/usr/share/shadowsocksr/subscribe.sh
+sed -i 's/fast_open="0"/fast_open="1"/g' package/*/luci-app-ssr-plus/root/usr/share/shadowsocksr/subscribe.sh
 sed -i 's/root::0:0:99999:7:::/root:$1$j4K9hIy0$M6mkXcqVVa3.kaZEsy8PX1:18255:0:99999:7:::/g' package/base-files/files/etc/shadow
 mkdir package/network/config/firewall/patches
 wget -P package/network/config/firewall/patches/ --no-check-certificate https://raw.githubusercontent.com/LGA1150/fullconenat-fw3-patch/master/fullconenat.patch
