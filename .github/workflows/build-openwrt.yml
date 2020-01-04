@@ -91,9 +91,9 @@ jobs:
         cd openwrt
         make -j1 V=s
         
-    - name: SSH connection to Actions
-      if: failure()
-      uses: P3TERX/debugger-action@master
+    #- name: SSH connection to Actions
+    #  if: failure()
+    #  uses: P3TERX/debugger-action@master
 
     - name: Organize files
       if: always()
