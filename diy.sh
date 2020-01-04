@@ -9,6 +9,7 @@ git clone https://github.com/LGA1150/openwrt-fullconenat
 # git clone https://github.com/mchome/luci-app-vlmcsd
 git clone https://github.com/mchome/openwrt-vlmcsd vlmcsd
 git clone https://github.com/KFERMercer/openwrt-v2ray v2ray
+git clone https://github.com/lovelyOK/luci-app-haproxy-tcp
 svn co https://github.com/maxlicheng/luci-app-unblockmusic/tree/master/UnblockNeteaseMusic
 svn co https://github.com/maxlicheng/luci-app-unblockmusic/tree/master/app luci-app-unblockmusic
 svn co https://github.com/pymumu/smartdns/trunk/package/openwrt smartdns
