@@ -8,7 +8,7 @@ git clone https://github.com/pymumu/luci-app-smartdns
 git clone https://github.com/LGA1150/openwrt-fullconenat
 git clone https://github.com/rufengsuixing/luci-app-onliner
 git clone https://github.com/lisaac/luci-app-diskman
-mkdir -p parted && cp -i luci-app-diskman/Parted.Makefile parted/Makefile
+mkdir parted && cp luci-app-diskman/Parted.Makefile parted/Makefile
 # git clone https://github.com/mchome/luci-app-vlmcsd
 git clone https://github.com/mchome/openwrt-vlmcsd vlmcsd
 git clone https://github.com/KFERMercer/openwrt-v2ray v2ray
