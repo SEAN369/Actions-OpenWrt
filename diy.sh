@@ -1,6 +1,9 @@
 #!/bin/bash
 #=================================================
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean package/lean
+cd lean
+git clone https://github.com/project-openwrt/luci-app-unblockneteasemusic
+cd -
 cd package/feeds
 git clone https://github.com/rufengsuixing/luci-app-adguardhome
 git clone https://github.com/jerrykuku/luci-theme-argon
@@ -13,7 +16,6 @@ mkdir parted && cp luci-app-diskman/Parted.Makefile parted/Makefile
 git clone https://github.com/mchome/openwrt-vlmcsd vlmcsd
 git clone https://github.com/KFERMercer/openwrt-v2ray v2ray
 git clone https://github.com/lovelyOK/luci-app-haproxy-tcp
-#git clone https://github.com/project-openwrt/luci-app-unblockneteasemusic
 svn co https://github.com/maxlicheng/luci-app-unblockmusic/trunk/UnblockNeteaseMusic
 svn co https://github.com/maxlicheng/luci-app-unblockmusic/trunk/app luci-app-unblockmusic
 svn co https://github.com/pymumu/smartdns/trunk/package/openwrt smartdns
