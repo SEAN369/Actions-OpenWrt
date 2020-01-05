@@ -1,8 +1,6 @@
 #!/bin/bash
 #=================================================
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean package/lean
-cd lean
-cd -
 cd package/feeds
 git clone https://github.com/project-openwrt/luci-app-unblockneteasemusic
 git clone https://github.com/rufengsuixing/luci-app-adguardhome
@@ -60,7 +58,6 @@ sed -i "s/PKG_HASH:=.*/PKG_HASH:=skip/g" package/feeds/v2ray/Makefile
 sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=$(getversion nondanee UnblockNeteaseMusic)/g" package/*/UnblockNeteaseMusic/Makefile
 sed -i 's/PACKAGE_libcap:libcap/libcap/g' feeds/packages/net/samba4/Makefile
 sed -i 's/..\/..\/luci.mk/$(TOPDIR)\/feeds\/luci\/luci.mk/g' package/feeds/*/Makefile
-# sed -i 's/ucichanges = ucichanges + #j/for k, l in pairs(j) do	  for m, n in pairs(l) do   ucichanges = ucichanges + 1;   end     end/g' package/*/luci-theme-argon/luasrc/view/themes/argon/header.htm
 find package/feeds package/lean -maxdepth 2 ! -path "*shadowsocksr-libev*" -name "Makefile" | xargs -i sed -i "s/PKG_SOURCE_VERSION:=[0-9a-z]\{15,\}/PKG_SOURCE_VERSION:=latest/g" {}
 sed -i 's/ip6tables //g' include/target.mk
 sed -i 's/odhcpd-ipv6only //g' include/target.mk
