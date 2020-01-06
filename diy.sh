@@ -2,9 +2,10 @@
 #=================================================
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean package/lean
 cd package/lean
-git clone https://github.com/project-openwrt/luci-app-unblockneteasemusic
+
 cd -
 cd package/feeds
+git clone https://github.com/project-openwrt/luci-app-unblockneteasemusic
 git clone https://github.com/rufengsuixing/luci-app-adguardhome
 git clone https://github.com/jerrykuku/luci-theme-argon
 git clone https://github.com/pymumu/luci-app-smartdns
