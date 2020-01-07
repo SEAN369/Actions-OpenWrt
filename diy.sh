@@ -1,9 +1,6 @@
 #!/bin/bash
 #=================================================
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean package/lean
-cd package/lean
-
-cd -
 cd package/feeds
 git clone https://github.com/project-openwrt/luci-app-unblockneteasemusic
 git clone https://github.com/rufengsuixing/luci-app-adguardhome
@@ -23,6 +20,7 @@ svn co https://github.com/pymumu/smartdns/trunk/package/openwrt smartdns
 svn co https://github.com/project-openwrt/openwrt/trunk/package/jsda/luci-app-advancedsetting
 svn co https://github.com/Lienol/openwrt-package/trunk/lienol/luci-app-passwall
 svn co https://github.com/Lienol/openwrt-package/trunk/package/tcping
+svn co https://github.com/Lienol/openwrt-package/trunk/lienol/luci-theme-argon-mod
 cd -
 sed -i '/^$/d' package/*/default-settings/files/zzz-default-settings
 sed -i '$i uci set luci.main.mediaurlbase=/luci-static/bootstrap' package/*/default-settings/files/zzz-default-settings
