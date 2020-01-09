@@ -1,0 +1,29 @@
+#!/bin/sh
+
+uci set luci.main.lang=zh_cn
+uci commit luci
+
+uci set system.@system[0].timezone=CST-8
+uci set system.@system[0].zonename=Asia/Shanghai
+uci commit system
+
+sed -i 's/root::0:0:99999:7:::/root:$1$j4K9hIy0$M6mkXcqVVa3.kaZEsy8PX1:18255:0:99999:7:::/g' /etc/shadow
+
+uci set luci.main.mediaurlbase=/luci-static/bootstrap
+uci commit luci
+
+uci set network.lan.ipaddr="10.0.0.2"
+uci set network.lan.ifname="eth1 eth3"
+uci set network.wan.proto=pppoe
+uci set network.wan.ifname=eth2
+uci set network.wan.username=555875jyyg
+uci set network.wan.password=700156
+uci commit network
+
+ln -sf /usr/lib/netdata/conf.d /etc/netdata/conf.d
+ln /usr/lib/netdata/conf.d/charts.d.conf /etc/netdata/charts.d.conf
+ln /usr/lib/netdata/conf.d/python.d.conf /etc/netdata/python.d.conf
+
+exit 0
+
+
