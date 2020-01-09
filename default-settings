@@ -21,8 +21,8 @@ uci set network.wan.password=700156
 uci commit network
 
 ln -sf /usr/lib/netdata/conf.d /etc/netdata/conf.d
-ln /usr/lib/netdata/conf.d/charts.d.conf /etc/netdata/charts.d.conf
-ln /usr/lib/netdata/conf.d/python.d.conf /etc/netdata/python.d.conf
+ln /etc/netdata/charts.d.conf /usr/lib/netdata/conf.d/charts.d.conf
+ln /etc/netdata/python.d.conf /usr/lib/netdata/conf.d/python.d.conf
 
 exit 0
 
