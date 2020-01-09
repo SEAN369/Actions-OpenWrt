@@ -37,6 +37,7 @@ sed -i '/openwrt_release/d' package/*/default-settings/files/zzz-default-setting
 #sed -i '$i sed -i "$i iptables -t nat -A zone_wan_prerouting -j FULLCONENAT" /etc/firewall.user' package/*/default-settings/files/zzz-default-settings
 #sed -i '$i sed -i "$i iptables -t nat -A zone_wan_postrouting -j FULLCONENAT" /etc/firewall.user' package/*/default-settings/files/zzz-default-settings
 sed -i '$a /etc/smartdns' package/base-files/files/lib/upgrade/keep.d/base-files-essential
+sed -i '$a /usr/lib/netdata/conf.d' package/base-files/files/lib/upgrade/keep.d/base-files-essential
 sed -i "s/option bbr '0'/option bbr '1'/g" package/*/luci-app-flowoffload/root/etc/config/flowoffload
 find target/linux/x86 -name "config*" | xargs -i sed -i '$a # CONFIG_WLAN is not set' {}
 find target/linux/x86 -name "config*" | xargs -i sed -i '$a # CONFIG_WIRELESS is not set' {}
