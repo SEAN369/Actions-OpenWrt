@@ -33,9 +33,9 @@ sed -i '$i uci set network.wan.ifname=eth2' package/*/default-settings/files/zzz
 sed -i '$i uci set network.wan.username=555875jyyg' package/*/default-settings/files/zzz-default-settings
 sed -i '$i uci set network.wan.password=700156' package/*/default-settings/files/zzz-default-settings
 sed -i '$i uci commit network' package/*/default-settings/files/zzz-default-settings
-sed -i '$i ln -sf /etc/netdata/conf.d /usr/lib/netdata/conf.d' package/*/default-settings/files/zzz-default-settings
-sed -i '$i ln /etc/netdata/charts.d.conf /usr/lib/netdata/conf.d/charts.d.conf' package/*/default-settings/files/zzz-default-settings
-sed -i '$i ln /etc/netdata/python.d.conf /usr/lib/netdata/conf.d/python.d.conf' package/*/default-settings/files/zzz-default-settings
+sed -i '$i ln -sf /usr/lib/netdata/conf.d /etc/netdata/conf.d' package/*/default-settings/files/zzz-default-settings
+sed -i '$i ln /usr/lib/netdata/conf.d/charts.d.conf /etc/netdata/charts.d.conf' package/*/default-settings/files/zzz-default-settings
+sed -i '$i ln /usr/lib/netdata/conf.d/python.d.conf /etc/netdata/python.d.conf' package/*/default-settings/files/zzz-default-settings
 sed -i '/openwrt_release/d' package/*/default-settings/files/zzz-default-settings
 #sed -i '$i sed -i "$i iptables -t nat -A zone_wan_prerouting -j FULLCONENAT" /etc/firewall.user' package/*/default-settings/files/zzz-default-settings
 #sed -i '$i sed -i "$i iptables -t nat -A zone_wan_postrouting -j FULLCONENAT" /etc/firewall.user' package/*/default-settings/files/zzz-default-settings
