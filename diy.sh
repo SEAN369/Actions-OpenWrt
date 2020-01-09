@@ -1,7 +1,7 @@
 #!/bin/bash
 #=================================================
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean package/lean
-cp -rf default-settings package/lean/default-settings/files/zzz-default-settings
+cp -rf ../default-settings package/lean/default-settings/files/zzz-default-settings
 cd package/feeds
 git clone https://github.com/project-openwrt/luci-app-unblockneteasemusic
 git clone https://github.com/rufengsuixing/luci-app-adguardhome
