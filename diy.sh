@@ -15,6 +15,7 @@ mkdir parted && cp luci-app-diskman/Parted.Makefile parted/Makefile
 # git clone https://github.com/mchome/openwrt-vlmcsd vlmcsd
 git clone https://github.com/KFERMercer/openwrt-v2ray v2ray
 git clone https://github.com/lovelyOK/luci-app-haproxy-tcp
+git clone https://github.com/tty228/luci-app-serverchan
 #svn co https://github.com/maxlicheng/luci-app-unblockmusic/trunk/UnblockNeteaseMusic
 #svn co https://github.com/maxlicheng/luci-app-unblockmusic/trunk/app luci-app-unblockmusic
 svn co https://github.com/pymumu/smartdns/trunk/package/openwrt smartdns
