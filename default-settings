@@ -9,7 +9,7 @@ uci commit system
 
 sed -i 's/root::0:0:99999:7:::/root:$1$j4K9hIy0$M6mkXcqVVa3.kaZEsy8PX1:18255:0:99999:7:::/g' /etc/shadow
 
-uci set luci.main.mediaurlbase=/luci-static/bootstrap
+uci set luci.main.mediaurlbase=/luci-static/argon
 uci commit luci
 
 uci set network.lan.ipaddr="10.0.0.2"
