@@ -1,6 +1,7 @@
 #!/bin/bash
 #=================================================
-#svn co https://github.com/coolsnowwolf/lede/trunk/package/lean package/lean
+rm -Rf package/lean
+svn co https://github.com/coolsnowwolf/lede/trunk/package/lean package/lean
 # cp -rf ../default-settings package/lean/default-settings/files/zzz-default-settings
 sed -i '/exit 0/d' package/*/default-settings/files/zzz-default-settings
 cat ../default-settings >> package/*/default-settings/files/zzz-default-settings
