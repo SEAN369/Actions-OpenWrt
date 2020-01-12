@@ -1,7 +1,11 @@
 #!/bin/bash
 #=================================================
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean package/lean
-cp -rf ../default-settings package/lean/default-settings/files/zzz-default-settings
+# cp -rf ../default-settings package/lean/default-settings/files/zzz-default-settings
+sed -i '/exit 0/d' package/*/default-settings/files/zzz-default-settings
+cat ../default-settings >> package/*/default-settings/files/zzz-default-settings
+sed -i '/REDIRECT --to-ports 53/d' package/*/default-settings/files/zzz-default-settings
+sed -i '/openwrt_release/d' package/*/default-settings/files/zzz-default-settings
 cd package/feeds
 git clone https://github.com/Lienol/openwrt-package
 git clone https://github.com/project-openwrt/luci-app-unblockneteasemusic
