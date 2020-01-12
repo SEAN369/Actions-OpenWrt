@@ -28,7 +28,7 @@ svn co https://github.com/project-openwrt/openwrt/trunk/package/jsda/luci-app-ad
 cd -
 
 sed -i '$a /etc/smartdns' package/base-files/files/lib/upgrade/keep.d/base-files-essential
-find target/linux/x86 -name "config*" | xargs -i sed -i '$a # CONFIG_WLAN is not set\n# CONFIG_WIRELESS is not set\nCONFIG_HWMON=y\nCONFIG_SENSORS_CORETEMP=y\nCONFIG_GPIOLIB=y\nONFIG_I2C=y\nCONFIG_NETFILTER_XT_MATCH_STRING=m' {}
+find target/linux/x86 -name "config*" | xargs -i sed -i '$a # CONFIG_WLAN is not set\n# CONFIG_WIRELESS is not set\nCONFIG_HWMON=y\nCONFIG_SENSORS_CORETEMP=y\nCONFIG_GPIOLIB=y\nCONFIG_I2C=y\nCONFIG_NETFILTER_XT_MATCH_STRING=m' {}
 #sed -i 's/fast_open="0"/fast_open="1"/g' package/*/luci-app-passwall/root/usr/share/passwall/subscription.sh
 sed -i '/switch_enable/d' package/*/luci-app-ssr-plus/root/usr/share/shadowsocksr/subscribe.sh
 sed -i 's/fast_open="0"/fast_open="1"/g' package/*/luci-app-ssr-plus/root/usr/share/shadowsocksr/subscribe.sh
