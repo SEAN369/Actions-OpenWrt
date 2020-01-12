@@ -1,13 +1,13 @@
 #!/bin/bash
 #=================================================
-svn co https://github.com/coolsnowwolf/lede/trunk/package/lean package/lean
+#svn co https://github.com/coolsnowwolf/lede/trunk/package/lean package/lean
 # cp -rf ../default-settings package/lean/default-settings/files/zzz-default-settings
 sed -i '/exit 0/d' package/*/default-settings/files/zzz-default-settings
 cat ../default-settings >> package/*/default-settings/files/zzz-default-settings
 sed -i '/REDIRECT --to-ports 53/d' package/*/default-settings/files/zzz-default-settings
 sed -i '/openwrt_release/d' package/*/default-settings/files/zzz-default-settings
 cd package/feeds
-git clone https://github.com/Lienol/openwrt-package
+#git clone https://github.com/Lienol/openwrt-package
 git clone https://github.com/project-openwrt/luci-app-unblockneteasemusic
 git clone https://github.com/rufengsuixing/luci-app-adguardhome
 git clone https://github.com/jerrykuku/luci-theme-argon
@@ -25,20 +25,18 @@ git clone https://github.com/tty228/luci-app-serverchan
 #svn co https://github.com/maxlicheng/luci-app-unblockmusic/trunk/app luci-app-unblockmusic
 svn co https://github.com/pymumu/smartdns/trunk/package/openwrt smartdns
 svn co https://github.com/project-openwrt/openwrt/trunk/package/jsda/luci-app-advancedsetting
-svn co https://github.com/Lienol/openwrt-package/trunk/lienol/luci-app-passwall
-svn co https://github.com/Lienol/openwrt-package/trunk/package/tcping
 cd -
 
 sed -i '$a /etc/smartdns' package/base-files/files/lib/upgrade/keep.d/base-files-essential
-find target/linux/x86 -name "config*" | xargs -i sed -i '$a # CONFIG_WLAN is not set\n# CONFIG_WIRELESS is not set\nCONFIG_HWMON=y\nCONFIG_SENSORS_CORETEMP=y\nCONFIG_GPIOLIB=y\nONFIG_I2C=y\nCONFIG_NETFILTER_XT_MATCH_STRING=m' {}
+find target/linux/x86 -name "config*" | xargs -i sed -i '$a # CONFIG_WLAN is not set\n# CONFIG_WIRELESS is not set\nCONFIG_X86_PCC_CPUFREQ=m\nCONFIG_X86_ACPI_CPUFREQ_CPB=y\nCONFIG_HWMON=y\nCONFIG_SENSORS_CORETEMP=y\nCONFIG_GPIOLIB=y\nONFIG_I2C=y\nCONFIG_NETFILTER_XT_MATCH_STRING=m' {}
 #sed -i 's/fast_open="0"/fast_open="1"/g' package/*/luci-app-passwall/root/usr/share/passwall/subscription.sh
 sed -i '/switch_enable/d' package/*/luci-app-ssr-plus/root/usr/share/shadowsocksr/subscribe.sh
 sed -i 's/fast_open="0"/fast_open="1"/g' package/*/luci-app-ssr-plus/root/usr/share/shadowsocksr/subscribe.sh
 sed -i 's/net.netfilter.nf_conntrack_max=16384/net.netfilter.nf_conntrack_max=105535/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
-mkdir package/network/config/firewall/patches
-wget -P package/network/config/firewall/patches/ --no-check-certificate https://raw.githubusercontent.com/Lienol/openwrt/my-19.07-full/package/network/config/firewall/patches/fullconenat.patch
-sed -i "s/('Drop invalid packets'));/('Drop invalid packets'));\n o = s.option(form.Flag, 'fullcone', _('Enable FullCone NAT'));/g" package/feeds/*/luci-app-firewall/htdocs/luci-static/resources/view/firewall/zones.js
-sed -i "s/option forward		REJECT/option forward		REJECT\n	option fullcone	1/g" package/network/config/firewall/files/firewall.config
+#mkdir package/network/config/firewall/patches
+#wget -P package/network/config/firewall/patches/ --no-check-certificate https://raw.githubusercontent.com/Lienol/openwrt/my-19.07-full/package/network/config/firewall/patches/fullconenat.patch
+#sed -i "s/('Drop invalid packets'));/('Drop invalid packets'));\n o = s.option(form.Flag, 'fullcone', _('Enable FullCone NAT'));/g" package/feeds/*/luci-app-firewall/htdocs/luci-static/resources/view/firewall/zones.js
+#sed -i "s/option forward		REJECT/option forward		REJECT\n	option fullcone	1/g" package/network/config/firewall/files/firewall.config
 sed -i "s/option bbr '0'/option bbr '1'/g" package/*/luci-app-flowoffload/root/etc/config/flowoffload
 #cd feeds/luci
 #wget -O- --no-check-certificate https://github.com/LGA1150/fullconenat-fw3-patch/raw/master/luci.patch | git apply
