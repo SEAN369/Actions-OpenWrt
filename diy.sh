@@ -26,6 +26,8 @@ git clone https://github.com/jerrykuku/luci-app-vssr
 #svn co https://github.com/maxlicheng/luci-app-unblockmusic/trunk/app luci-app-unblockmusic
 svn co https://github.com/pymumu/smartdns/trunk/package/openwrt smartdns
 svn co https://github.com/project-openwrt/openwrt/trunk/package/jsda/luci-app-advancedsetting
+svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-samba4
+svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-ssr-plus
 cd -
 
 rm -Rf package/lean/wsdd2/patches/001-add_uuid_boot_id.patch
