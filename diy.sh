@@ -31,6 +31,7 @@ svn co https://github.com/project-openwrt/openwrt/trunk/package/jsda/luci-app-ad
 cd -
 
 rm -Rf package/lean/wsdd2/patches/001-add_uuid_boot_id.patch
+sed -i 's/cycle_time=60/cycle_time=1800/g' package/lean/luci-app-ssr-plus/root/usr/bin/ssr-switch
 sed -i '$a /etc/smartdns' package/base-files/files/lib/upgrade/keep.d/base-files-essential
 find target/linux/x86 -name "config*" | xargs -i sed -i '$a # CONFIG_WLAN is not set\n# CONFIG_WIRELESS is not set\nCONFIG_NETFILTER_XT_MATCH_STRING=m' {}
 #sed -i 's/fast_open="0"/fast_open="1"/g' package/*/luci-app-passwall/root/usr/share/passwall/subscription.sh
