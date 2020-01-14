@@ -31,7 +31,7 @@ svn co https://github.com/project-openwrt/openwrt/trunk/package/jsda/luci-app-ad
 cd -
 
 rm -Rf package/lean/wsdd2/patches/001-add_uuid_boot_id.patch
-rm -Rf package/feeds/packages/haproxy/files/haproxy.init
+#rm -Rf package/feeds/packages/haproxy/files/haproxy.init
 sed -i 's/rise 1/rise 1200/g' package/feeds/*/luci-app-passwall/root/usr/share/passwall/app.sh
 sed -i 's/$HAPROXY_FILE 2>&1/$HAPROXY_FILE/g' package/feeds/*/luci-app-passwall/root/usr/share/passwall/app.sh
 sed -i 's/cycle_time=60/cycle_time=1800/g' package/lean/luci-app-ssr-plus/root/usr/bin/ssr-switch
