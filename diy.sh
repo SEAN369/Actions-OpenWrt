@@ -8,6 +8,8 @@ sed -i '/exit 0/d' package/*/default-settings/files/zzz-default-settings
 cat ../default-settings >> package/*/default-settings/files/zzz-default-settings
 sed -i '/REDIRECT --to-ports 53/d' package/*/default-settings/files/zzz-default-settings
 sed -i '/openwrt_release/d' package/*/default-settings/files/zzz-default-settings
+mkdir package/feeds/packages/aria2/patches
+git clone https://github.com/garypang13/aria2-patch package/feeds/packages/aria2/patches/
 cd package/feeds
 #git clone https://github.com/Lienol/openwrt-package
 git clone https://github.com/garypang13/op-app.git
