@@ -37,8 +37,9 @@ cd -
 rm -Rf package/lean/wsdd2/patches/001-add_uuid_boot_id.patch
 #rm -Rf package/feeds/packages/haproxy/files/haproxy.init
 sed -i 's/conf.$section/conf/g' package/feeds/packages/aria2/files/aria2.init
-sed -i 's/$config_dir\/dht\(.*\).$section"/\/usr\/share\/aria2\/dht\1"/g' package/feeds/packages/aria2/files/aria2.init
-sed -i "s/sed '\/^$\/d'/cat \/usr\/share\/aria2\/aria2.conf >> \"\$config_file\"\necho '' >> \"\$config_file\"\nsed '\/^$\/d'/g" package/feeds/packages/aria2/files/aria2.init
+sed -i 's/$config_dir\/dht\(.*\).$section/\/usr\/share\/aria2\/dht\1/g' package/feeds/packages/aria2/files/aria2.init
+sed -i "s/sed '\/^$\/d' \"$config_file_tmp\" >\"$config_file\"/cat \/usr\/share\/aria2\/aria2.conf >> \"\$config_file\"\necho '' >> \"\$config_file\"\nsed '\/^$\/d' \"$config_file_tmp\" >> \"$config_file\"/g" package/feeds/packages/aria2/files/aria2.init
+sed -i 's/range(1, 16)/range(1, 64)/g' package/feeds/luci/luci-app-aria2/luasrc/model/cbi/aria2.lua
 sed -i 's/rise 1/rise 1200/g' package/feeds/*/luci-app-passwall/root/usr/share/passwall/app.sh
 sed -i 's/cycle_time=60/cycle_time=1800/g' package/lean/luci-app-ssr-plus/root/usr/bin/ssr-switch
 sed -i '$a /etc/smartdns' package/base-files/files/lib/upgrade/keep.d/base-files-essential
