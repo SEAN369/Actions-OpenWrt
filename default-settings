@@ -20,9 +20,6 @@ ln /usr/lib/netdata/conf.d/python.d.conf /etc/netdata/python.d.conf
 ln -f /etc/netdata/charts.d.conf /usr/lib/netdata/conf.d/charts.d.conf
 ln -f /etc/netdata/python.d.conf /usr/lib/netdata/conf.d/python.d.conf
 
-git clone https://github.com/P3TERX/aria2.conf.git /usr/share/aria2
-chmod +x /usr/share/aria2/*
-
 exit 0
 
 
