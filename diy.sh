@@ -48,7 +48,7 @@ sed -i '$a /usr/share/kodexplorer' package/base-files/files/lib/upgrade/keep.d/b
 sed -i '$a /usr/share/aria2' package/base-files/files/lib/upgrade/keep.d/base-files-essential
 find target/linux/x86 -name "config*" | xargs -i sed -i '$a # CONFIG_WLAN is not set\n# CONFIG_WIRELESS is not set\nCONFIG_NETFILTER_XT_MATCH_STRING=m' {}
 #sed -i 's/fast_open="0"/fast_open="1"/g' package/*/luci-app-passwall/root/usr/share/passwall/subscription.sh
-sed -i '/switch_enable/d' package/*/luci-app-ssr-plus/root/usr/share/shadowsocksr/subscribe.sh
+sed -i '/switch_enable/d' package/*/luci-app-ssr-plus/root/usr/share/shadowsocksr/subscribe.lua
 sed -i 's/fast_open="0"/fast_open="1"/g' package/*/luci-app-ssr-plus/root/usr/share/shadowsocksr/subscribe.lua
 sed -i 's/net.netfilter.nf_conntrack_max=16384/net.netfilter.nf_conntrack_max=105535/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
 #mkdir package/network/config/firewall/patches
