@@ -1,4 +1,4 @@
-sed -i 's/root::0:0:99999:7:::/root:$1$7f4YP/NX$VEZzIMnAEu36noAjugtp2./g' /etc/shadow
+sed -i 's/root::0:0:99999:7:::/root:$1$7f4YP/NX$VEZzIMnAEu36noAjugtp2.:18280:0:99999:7:::/g' /etc/shadow
 
 uci set luci.main.mediaurlbase=/luci-static/argon
 uci commit luci
