@@ -3,6 +3,7 @@
 rm -Rf package/lean
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean package/lean
 rm -Rf package/lean/default-settings
+rm -Rf package/feeds/packages/aria2
 # cp -rf ../default-settings package/lean/default-settings/files/zzz-default-settings
 sed -i '/exit 0/d' package/*/default-settings/files/zzz-default-settings
 cat ../default-settings >> package/*/default-settings/files/zzz-default-settings
