@@ -1,6 +1,6 @@
 #!/bin/bash
 #=================================================
-sudo npm install -g github-files-fetcher
+#sudo npm install -g github-files-fetcher && fetcher --url="https://github.com/openwrt/packages/tree/openwrt-18.06/net/miniupnpd" --out=package/feeds/
 rm -Rf package/lean
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean package/lean
 rm -Rf package/lean/default-settings
@@ -34,7 +34,6 @@ git clone https://github.com/jerrykuku/luci-app-vssr
 #svn co https://github.com/maxlicheng/luci-app-unblockmusic/trunk/app luci-app-unblockmusic
 svn co https://github.com/pymumu/smartdns/trunk/package/openwrt smartdns
 svn co https://github.com/project-openwrt/openwrt/trunk/package/jsda/luci-app-advancedsetting
-fetcher --url="https://github.com/openwrt/packages/tree/openwrt-18.06/net/miniupnpd" --out=package/feeds/
 cd -
 
 sed -i 's/+uhttpd //g' /feeds/luci/collections/luci/Makefile
