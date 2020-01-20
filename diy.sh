@@ -16,6 +16,7 @@ wget -P package/feeds/packages/aria2/patches/ --no-check-certificate https://raw
 cd package/feeds
 #git clone https://github.com/Lienol/openwrt-package
 git clone https://github.com/garypang13/op-app.git
+git clone https://github.com/tty228/luci-app-serverchan
 git clone https://github.com/project-openwrt/luci-app-unblockneteasemusic
 git clone https://github.com/rufengsuixing/luci-app-adguardhome
 git clone https://github.com/jerrykuku/luci-theme-argon
