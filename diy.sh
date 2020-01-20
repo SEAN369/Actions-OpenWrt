@@ -36,7 +36,7 @@ svn co https://github.com/pymumu/smartdns/trunk/package/openwrt smartdns
 svn co https://github.com/project-openwrt/openwrt/trunk/package/jsda/luci-app-advancedsetting
 cd -
 
-sed -i 's/+uhttpd //g' /feeds/luci/collections/luci/Makefile
+sed -i 's/+uhttpd //g' feeds/luci/collections/luci/Makefile
 rm -Rf package/lean/wsdd2/patches/001-add_uuid_boot_id.patch
 #rm -Rf package/feeds/packages/haproxy/files/haproxy.init
 sed -i 's/conf.$section/conf/g' package/feeds/packages/aria2/files/aria2.init
