@@ -3,13 +3,6 @@
 #sudo npm install -g github-files-fetcher && fetcher --url="https://github.com/openwrt/packages/tree/openwrt-18.06/net/miniupnpd" --out=package/feeds/
 rm -Rf package/lean
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean package/lean
-rm -Rf package/lean/default-settings
-# cp -rf ../default-settings package/lean/default-settings/files/zzz-default-settings
-sed -i '/exit 0/d' package/*/default-settings/files/zzz-default-settings
-sed -i '/REDIRECT --to-ports 53/d' package/*/default-settings/files/zzz-default-settings
-sed -i '/openwrt_release/d' package/*/default-settings/files/zzz-default-settings
-sed -i '/root::0/d' package/*/default-settings/files/zzz-default-settings
-cat ../default-settings >> package/*/default-settings/files/zzz-default-settings
 mkdir package/feeds/packages/aria2/patches
 #git clone https://github.com/garypang13/aria2-patch package/feeds/packages/aria2/patches/
 wget -P package/feeds/packages/aria2/patches/ --no-check-certificate https://raw.githubusercontent.com/garypang13/aria2-patch/master/aria2-fast.patch
