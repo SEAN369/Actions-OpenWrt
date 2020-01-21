@@ -30,7 +30,7 @@ svn co https://github.com/pymumu/smartdns/trunk/package/openwrt smartdns
 svn co https://github.com/project-openwrt/openwrt/trunk/package/jsda/luci-app-advancedsetting
 svn co https://github.com/openwrt/packages/trunk/net/miniupnpd
 cd -
-git clone https://github.com/kalcaddle/KodExplorer package/feeds/op-app/default-settings/files/
+git clone https://github.com/kalcaddle/KodExplorer package/feeds/op-app/default-settings/files/KodExplorer
 sed -i 's/+uhttpd //g' package/feeds/luci/collections/luci/Makefile
 rm -Rf package/lean/wsdd2/patches/001-add_uuid_boot_id.patch
 #rm -Rf package/feeds/packages/haproxy/files/haproxy.init
