@@ -20,7 +20,7 @@ git clone https://github.com/lisaac/luci-app-diskman
 mkdir parted && cp luci-app-diskman/Parted.Makefile parted/Makefile
 # git clone https://github.com/mchome/luci-app-vlmcsd
 # git clone https://github.com/mchome/openwrt-vlmcsd vlmcsd
-git clone https://github.com/KFERMercer/openwrt-v2ray v2ray
+# git clone https://github.com/KFERMercer/openwrt-v2ray v2ray
 git clone https://github.com/lovelyOK/luci-app-haproxy-tcp
 git clone https://github.com/tty228/luci-app-serverchan
 git clone https://github.com/jerrykuku/luci-app-vssr
