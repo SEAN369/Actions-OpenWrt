@@ -41,10 +41,10 @@ sed -i 's/range(1, 16)/range(1, 64)/g' package/feeds/luci/luci-app-aria2/luasrc/
 sed -i 's/rise 1/rise 1200/g' package/feeds/*/luci-app-passwall/root/usr/share/passwall/app.sh
 sed -i 's/test_proxy()/test_proxy1()/g' package/lean/luci-app-ssr-plus/root/usr/bin/ssr-switch
 sed -i '$a /etc/smartdns' package/base-files/files/lib/upgrade/keep.d/base-files-essential
-sed -i '$a /usr/share/kodexplorer' package/base-files/files/lib/upgrade/keep.d/base-files-essential
 sed -i '$a /usr/share/aria2' package/base-files/files/lib/upgrade/keep.d/base-files-essential
 sed -i '$a /etc/nginx' package/base-files/files/lib/upgrade/keep.d/base-files-essential
 sed -i '$a /www/nas/data' package/base-files/files/lib/upgrade/keep.d/base-files-essential
+sed -i '$a /www/nas/plugins' package/base-files/files/lib/upgrade/keep.d/base-files-essential
 find target/linux/x86 -name "config*" | xargs -i sed -i '$a # CONFIG_WLAN is not set\n# CONFIG_WIRELESS is not set\nCONFIG_NETFILTER_XT_MATCH_STRING=m' {}
 #sed -i 's/fast_open="0"/fast_open="1"/g' package/*/luci-app-passwall/root/usr/share/passwall/subscription.sh
 sed -i '/switch_enable/d' package/*/luci-app-ssr-plus/root/usr/share/shadowsocksr/subscribe.lua
