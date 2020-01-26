@@ -32,6 +32,8 @@ svn co https://github.com/openwrt/packages/trunk/net/miniupnpd
 cd -
 find package/feeds/luci/*/* -name "*.htm" | xargs sed -i "s/action=\"<%=url(\(\"\|'\)admin\//action=\"<%=url\(\1/g"
 find package/feeds/lienol/*/* -name "*.htm" | xargs sed -i "s/action=\"<%=url(\(\"\|'\)admin/\/action=\"<%=url\(\1/g"
+find package/feeds/luci/*/* -name "*.htm" | xargs sed -i "s/action=\"<%=REQUEST_URI/action=\"<%=URI/g"
+find package/feeds/lienol/*/* -name "*.htm" | xargs sed -i "s/action=\"<%=REQUEST_URI/action=\"<%=URI/g"
 git clone https://github.com/kalcaddle/KodExplorer files/www/nas
 sed -i 's/+uhttpd //g' feeds/luci/collections/luci/Makefile
 rm -Rf package/lean/wsdd2/patches/001-add_uuid_boot_id.patch
