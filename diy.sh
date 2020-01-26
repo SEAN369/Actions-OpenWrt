@@ -2,7 +2,7 @@
 #=================================================
 #sudo npm install -g github-files-fetcher && fetcher --url="https://github.com/openwrt/packages/tree/openwrt-18.06/net/miniupnpd" --out=package/feeds/
 rm -Rf package/lean/patches
-sed -i 's/PKG_SOURCE_URL:=.*/PKG_SOURCE_URL:=https://github.com/c0re100/qBittorrent-Enhanced-Edition/g' package/feeds/packages/aria2/files/aria2.init
+sed -i 's/PKG_SOURCE_URL:=.*/PKG_SOURCE_PROTO:=git\nPKG_SOURCE_URL:=https://github.com/c0re100/qBittorrent-Enhanced-Edition/g' package/feeds/packages/aria2/files/aria2.init
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean package/lean
 rm -Rf package/lean/qBittorrent
 mkdir package/feeds/packages/aria2/patches
