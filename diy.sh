@@ -5,7 +5,7 @@ rm -Rf package/lean
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean package/lean
 rm -Rf package/lean/qBittorrent/patches
 sed -i 's/PKG_SOURCE_URL:=.*/PKG_SOURCE_URL:=https:\/\/github.com\/c0re100\/qBittorrent-Enhanced-Edition/g' package/lean/qBittorrent/Makefile
-sed -i 's/PKG_HASH.*/PKG_SOURCE_PROTO:=git\nPKG_SOURCE_VERSION:=latest/g' package/lean/qBittorrent/Makefile
+sed -i 's/PKG_HASH.*/PKG_SOURCE_PROTO:=git\nPKG_SOURCE_SUBDIR:=qBittorrent-release-$(PKG_VERSION)\nPKG_SOURCE_VERSION:=latest/g' package/lean/qBittorrent/Makefile
 sed -i 's/+python/+python3/g' package/lean/luci-app-qbittorrent/Makefile
 sed -i 's/PKG_SOURCE_URL:=.*/PKG_SOURCE_URL:=https:\/\/github.com\/persmule\/amule-dlp/g' package/lean/amule/Makefile
 rm -Rf package/lean/amule/patches/001-amule-dlp.patch
