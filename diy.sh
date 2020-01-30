@@ -36,10 +36,10 @@ svn co https://github.com/pymumu/smartdns/trunk/package/openwrt smartdns
 svn co https://github.com/project-openwrt/openwrt/trunk/package/jsda/luci-app-advancedsetting
 svn co https://github.com/openwrt/packages/trunk/net/miniupnpd
 cd -
-find package/feeds/*/*/* -name "*.htm" | xargs sed -i "s/action=\"<%=url(\(\"\|'\)admin\//action=\"<%=url\(\1/g"
-find package/lean/*/* -name "*.htm" | xargs sed -i "s/action=\"<%=url(\(\"\|'\)admin/\/action=\"<%=url\(\1/g"
-find package/feeds/*/*/* -name "*.htm" | xargs sed -i "s/\(<form .*action=\"\)<%=REQUEST_URI%>\(\" method=\"post\">\)/<script>document.write('\1'+document.URL+'\2')<\/script>/g"
-find package/lean/*/* -name "*.htm" | xargs sed -i "s/\(<form .*action=\"\)<%=REQUEST_URI%>\(\" method=\"post\">\)/<script>document.write('\1'+document.URL+'\2')<\/script>/g"
+#find package/feeds/*/*/* -name "*.htm" | xargs sed -i "s/action=\"<%=url(\(\"\|'\)admin\//action=\"<%=url\(\1/g"
+#find package/lean/*/* -name "*.htm" | xargs sed -i "s/action=\"<%=url(\(\"\|'\)admin/\/action=\"<%=url\(\1/g"
+#find package/feeds/*/*/* -name "*.htm" | xargs sed -i "s/\(<form .*action=\"\)<%=REQUEST_URI%>\(\" method=\"post\">\)/<script>document.write('\1'+document.URL+'\2')<\/script>/g"
+#find package/lean/*/* -name "*.htm" | xargs sed -i "s/\(<form .*action=\"\)<%=REQUEST_URI%>\(\" method=\"post\">\)/<script>document.write('\1'+document.URL+'\2')<\/script>/g"
 git clone https://github.com/kalcaddle/KodExplorer files/www/nas
 sed -i 's/+uhttpd //g' feeds/luci/collections/luci/Makefile
 rm -Rf package/lean/wsdd2/patches/001-add_uuid_boot_id.patch
