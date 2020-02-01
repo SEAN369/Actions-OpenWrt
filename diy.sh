@@ -20,8 +20,8 @@ cd package/feeds
 git clone https://github.com/garypang13/op-app.git
 git clone https://github.com/tty228/luci-app-serverchan
 git clone https://github.com/project-openwrt/luci-app-unblockneteasemusic
-git clone -b 18.06 https://github.com/rufengsuixing/luci-app-adguardhome
-git clone https://github.com/jerrykuku/luci-theme-argon
+git clone https://github.com/rufengsuixing/luci-app-adguardhome
+git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon
 git clone https://github.com/pymumu/luci-app-smartdns
 git clone https://github.com/LGA1150/openwrt-fullconenat
 git clone https://github.com/rufengsuixing/luci-app-onliner
