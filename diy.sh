@@ -15,7 +15,7 @@ sed -i 's/\("uTP_rate_limited"\)/\1 "AutoUpdateTrackers" "CustomizeTrackersListU
 sed -i 's/\("SuperSeeding"\)/\1 "AnnounceToAllTrackers" "trackerEnabled" "trackerPort"/g' package/lean/luci-app-qbittorrent/root/etc/init.d/qbittorrent
 #git clone https://github.com/garypang13/aria2-patch package/feeds/packages/aria2/patches/
 wget -P package/feeds/packages/aria2/patches/ --no-check-certificate https://raw.githubusercontent.com/garypang13/aria2-patch/master/aria2-fast.patch
-svn co https://github.com/coolsnowwolf/lede/tree/master/package/kernel/antfs package/kernel/
+svn co https://github.com/coolsnowwolf/lede/trunk/package/kernel/antfs package/kernel/
 cd package/feeds
 #git clone https://github.com/Lienol/openwrt-package
 git clone https://github.com/garypang13/op-app.git
