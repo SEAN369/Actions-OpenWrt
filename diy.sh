@@ -44,7 +44,7 @@ cd -
 #find package/lean/*/* -name "*.htm" | xargs sed -i "s/action=\"<%=url(\(\"\|'\)admin/\/action=\"<%=url\(\1/g"
 #find package/feeds/*/*/* -name "*.htm" | xargs sed -i "s/\(<form .*action=\"\)<%=REQUEST_URI%>\(\" method=\"post\">\)/<script>document.write('\1'+document.URL+'\2')<\/script>/g"
 #find package/lean/*/* -name "*.htm" | xargs sed -i "s/\(<form .*action=\"\)<%=REQUEST_URI%>\(\" method=\"post\">\)/<script>document.write('\1'+document.URL+'\2')<\/script>/g"
-git clone https://github.com/MatteoRagni/AmuleWebUI-Reloaded files/usr/share/amule/webserver/
+git clone https://github.com/MatteoRagni/AmuleWebUI-Reloaded files/usr/share/amule/webserver/AmuleWebUI-Reloaded
 git clone https://github.com/kalcaddle/KodExplorer files/www/nas
 git clone https://github.com/P3TERX/aria2.conf files/usr/share/aria2
 sed -i 's/root\/.aria2/usr\/share\/aria2/g' files/usr/share/aria2/aria2.conf
