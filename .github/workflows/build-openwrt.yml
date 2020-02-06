@@ -77,7 +77,8 @@ jobs:
         chmod +x $DIY_SH
         cd openwrt
         ../$DIY_SH
-       # make defconfig
+        make defconfig
+        echo | make kernel_oldconfig
 
     - name: SSH connection to Actions
       uses: P3TERX/debugger-action@master
