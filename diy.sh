@@ -59,7 +59,7 @@ sed -i 's/conf.$section/conf/g' package/feeds/packages/aria2/files/aria2.init
 sed -i "s/sed '\/^$\/d' \"\$config_file_tmp\" >\"\$config_file\"/cat \/usr\/share\/aria2\/aria2.conf > \"\$config_file\"\necho '' >> \"\$config_file\"\nsed '\/^$\/d' \"\$config_file_tmp\" >> \"\$config_file\"/g" package/feeds/packages/aria2/files/aria2.init
 sed -i 's/range(1, 16)/range(1, 64)/g' package/feeds/luci/luci-app-aria2/luasrc/model/cbi/aria2.lua
 sed -i 's/rise 1/rise 1200/g' package/feeds/*/luci-app-passwall/root/usr/share/passwall/app.sh
-sed -i 's/test_proxy()/test_proxy1()/g' package/lean/luci-app-ssr-plus/root/usr/bin/ssr-switch
+sed -i 's/if test_proxy/sleep 3600\nif test_proxy/g' package/lean/luci-app-ssr-plus/root/usr/bin/ssr-switch
 sed -i '$a /etc/smartdns' package/base-files/files/lib/upgrade/keep.d/base-files-essential
 sed -i '$a /www/nas/data' package/base-files/files/lib/upgrade/keep.d/base-files-essential
 sed -i '$a /www/nas/plugins' package/base-files/files/lib/upgrade/keep.d/base-files-essential
