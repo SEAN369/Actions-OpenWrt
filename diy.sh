@@ -1,7 +1,6 @@
 #!/bin/bash
 #=================================================
 #sudo npm install -g github-files-fetcher && fetcher --url="https://github.com/openwrt/packages/tree/openwrt-18.06/net/miniupnpd" --out=package/feeds/
-cp -Rf ../diy/* ./
 rm -Rf package/lean
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean package/lean
 mv package/lean/v2ray package/feeds/v2ray
