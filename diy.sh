@@ -5,6 +5,7 @@ rm -Rf package/lean
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean package/lean
 rm -Rf package/feeds/luci
 git clone -b openwrt-19.07 https://github.com/openwrt/luci.git package/feeds/luci
+mv package/lean/v2ray package/feeds/v2ray
 rm -Rf package/lean/qBittorrent/patches
 sed -i 's/PKG_SOURCE_URL:=.*/PKG_SOURCE_URL:=https:\/\/github.com\/c0re100\/qBittorrent-Enhanced-Edition/g' package/lean/qBittorrent/Makefile
 sed -i 's/PKG_HASH.*/PKG_SOURCE_PROTO:=git\nPKG_SOURCE_VERSION:=latest/g' package/lean/qBittorrent/Makefile
