@@ -4,8 +4,8 @@
 rm -Rf package/lean
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean package/lean
 mv package/lean/v2ray package/feeds/v2ray
-mv package/lean/default-settings package/feeds/default-settings
 rm -Rf package/lean/openwrt-fullconenat
+rm -Rf package/lean/default-settings
 rm -Rf package/lean/qBittorrent/patches
 sed -i 's/PKG_SOURCE_URL:=.*/PKG_SOURCE_URL:=https:\/\/github.com\/c0re100\/qBittorrent-Enhanced-Edition/g' package/lean/qBittorrent/Makefile
 sed -i 's/PKG_HASH.*/PKG_SOURCE_PROTO:=git\nPKG_SOURCE_VERSION:=latest/g' package/lean/qBittorrent/Makefile
