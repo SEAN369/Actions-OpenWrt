@@ -91,5 +91,3 @@ sed -i 's/ip6tables //g' include/target.mk
 sed -i 's/odhcpd-ipv6only //g' include/target.mk
 sed -i 's/odhcp6c //g' include/target.mk
 sed -i 's/$(VERSION) &&/$(VERSION) ;/g' include/download.mk
-
-make defconfig
