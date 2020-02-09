@@ -93,4 +93,3 @@ sed -i 's/odhcp6c //g' include/target.mk
 sed -i 's/$(VERSION) &&/$(VERSION) ;/g' include/download.mk
 
 make defconfig
-#echo | make kernel_oldconfig
