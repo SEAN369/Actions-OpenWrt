@@ -41,7 +41,6 @@ git clone https://github.com/jerrykuku/luci-app-vssr
 #svn co https://github.com/maxlicheng/luci-app-unblockmusic/trunk/app luci-app-unblockmusic
 svn co https://github.com/pymumu/smartdns/trunk/package/openwrt smartdns
 svn co https://github.com/project-openwrt/openwrt/trunk/package/jsda/luci-app-advancedsetting
-svn co https://github.com/openwrt/packages/trunk/net/miniupnpd
 cd -
 #find package/feeds/*/*/* -name "*.htm" | xargs sed -i "s/action=\"<%=url(\(\"\|'\)admin\//action=\"<%=url\(\1/g"
 #find package/lean/*/* -name "*.htm" | xargs sed -i "s/action=\"<%=url(\(\"\|'\)admin/\/action=\"<%=url\(\1/g"
