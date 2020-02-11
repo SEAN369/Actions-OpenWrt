@@ -25,7 +25,7 @@ echo "log-facility=/dev/null" >> /etc/dnsmasq.conf
 rm -rf /tmp/luci-*
 
 sed -i 's/root:.*/root:$1$ZmATL.R6$IXqlHR2CE4un3tjjxQp7F1:18302:0:99999:7:::/g' /etc/shadow
-
+sed -i 's/check_signature//g' /etc/opkg.conf
 uci set luci.main.mediaurlbase=/luci-static/argon
 uci commit luci
 
