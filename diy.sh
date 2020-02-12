@@ -86,6 +86,7 @@ sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=$(getversion v2ray v2ray-core)/g" package
 sed -i "s/PKG_HASH:=.*/PKG_HASH:=skip/g" package/lean/v2ray/Makefile
 sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=$(getversion aria2 aria2)/g" package/feeds/*/aria2/Makefile
 sed -i "s/PKG_HASH:=.*/PKG_HASH:=skip/g" package/feeds/*/aria2/Makefile
+rm -Rf package/feeds/*/aria2/patches/010-Pl*.patch
 sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=$(getversion nondanee UnblockNeteaseMusic)/g" package/*/UnblockNeteaseMusic/Makefile
 sed -i 's/PACKAGE_libcap:libcap/libcap/g' feeds/packages/net/samba4/Makefile
 sed -i 's/..\/..\/luci.mk/$(TOPDIR)\/feeds\/luci\/luci.mk/g' package/feeds/*/Makefile
