@@ -38,6 +38,7 @@ git clone https://github.com/lovelyOK/luci-app-haproxy-tcp
 git clone https://github.com/tty228/luci-app-serverchan
 git clone https://github.com/jerrykuku/luci-app-vssr
 git clone https://github.com/lisaac/luci-app-dockerman
+git clone https://github.com/lisaac/luci-lib-docker
 #svn co https://github.com/maxlicheng/luci-app-unblockmusic/trunk/UnblockNeteaseMusic
 #svn co https://github.com/maxlicheng/luci-app-unblockmusic/trunk/app luci-app-unblockmusic
 svn co https://github.com/pymumu/smartdns/trunk/package/openwrt smartdns
