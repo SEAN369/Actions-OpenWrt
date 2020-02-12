@@ -80,7 +80,7 @@ sed -i "s/option bbr '0'/option bbr '1'/g" package/*/luci-app-flowoffload/root/e
 #wget -O- --no-check-certificate https://github.com/LGA1150/fullconenat-fw3-patch/raw/master/luci.patch | git apply
 #cd -
 getversion(){
-basename $(curl -Ls -o /dev/null -w %{url_effective} https://github.com/$1/$2/releases/latest) | sed "s/^v//g"
+basename $(curl -Ls -o /dev/null -w %{url_effective} https://github.com/$1/$2/releases/latest) | grep -o -E "[0-9.]+"
 }
 sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=$(getversion v2ray v2ray-core)/g" package/lean/v2ray/Makefile
 sed -i "s/PKG_HASH:=.*/PKG_HASH:=skip/g" package/lean/v2ray/Makefile
