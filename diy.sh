@@ -41,6 +41,7 @@ git clone https://github.com/lisaac/luci-app-dockerman
 git clone https://github.com/lisaac/luci-lib-docker
 git clone https://github.com/brvphoenix/luci-app-wrtbwmon
 git clone https://github.com/brvphoenix/wrtbwmon
+git clone https://github.com/destan19/OpenAppFilter
 #svn co https://github.com/maxlicheng/luci-app-unblockmusic/trunk/UnblockNeteaseMusic
 #svn co https://github.com/maxlicheng/luci-app-unblockmusic/trunk/app luci-app-unblockmusic
 svn co https://github.com/pymumu/smartdns/trunk/package/openwrt smartdns
