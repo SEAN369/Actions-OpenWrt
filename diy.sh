@@ -84,16 +84,14 @@ getversion(){
 basename $(curl -Ls -o /dev/null -w %{url_effective} https://github.com/$1/$2/releases/latest) | grep -o -E "[0-9.]+"
 }
 sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=$(getversion v2ray v2ray-core)/g" package/lean/v2ray/Makefile
-sed -i "s/PKG_HASH:=.*/PKG_HASH:=skip/g" package/lean/v2ray/Makefile
 sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=$(getversion aria2 aria2)/g" package/feeds/*/aria2/Makefile
-sed -i "s/PKG_HASH:=.*/PKG_HASH:=skip/g" package/feeds/*/aria2/Makefile
+sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=$(getversion Neilpang acme.sh)/g" package/feeds/*/acme/Makefile
+sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=$(getversion netdata netdata)/g" package/feeds/*/netdata/Makefile
+sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=$(getversion tsl0922 ttyd)/g" package/feeds/*/ttyd/Makefile
+find package/feeds/*/aria2/ package/feeds/*/acme/ package/feeds/*/netdata/ package/feeds/*/ttyd/ package/lean/v2ray/ -maxdepth 2 -name "Makefile" | xargs -i sed -i "s/PKG_HASH:=.*/PKG_HASH:=skip/g" {}
 rm -Rf package/feeds/*/aria2/patches/010-Pl*.patch
-sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=$(getversion acmesh-official acme.sh)/g" package/feeds/*/acme.sh/Makefile
-sed -i "s/PKG_HASH:=.*/PKG_HASH:=skip/g" package/feeds/*/acme.sh/Makefile
-sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=$(getversion nondanee UnblockNeteaseMusic)/g" package/*/UnblockNeteaseMusic/Makefile
-sed -i 's/PACKAGE_libcap:libcap/libcap/g' feeds/packages/net/samba4/Makefile
 sed -i 's/..\/..\/luci.mk/$(TOPDIR)\/feeds\/luci\/luci.mk/g' package/feeds/*/Makefile
-find package/feeds package/lean -maxdepth 3 ! -path "*shadowsocksr-libev*" -name "Makefile" ! -path "*rblibtorrent*" -name "Makefile" | xargs -i sed -i "s/PKG_SOURCE_VERSION:=[0-9a-z]\{15,\}/PKG_SOURCE_VERSION:=latest/g" {}
+find package/feeds/*/*/ package/lean/ -maxdepth 3 ! -path "*shadowsocksr-libev*" -name "Makefile" ! -path "*rblibtorrent*" -name "Makefile" | xargs -i sed -i "s/PKG_SOURCE_VERSION:=[0-9a-z]\{15,\}/PKG_SOURCE_VERSION:=latest/g" {}
 sed -i 's/ip6tables //g' include/target.mk
 sed -i 's/odhcpd-ipv6only //g' include/target.mk
 sed -i 's/odhcp6c //g' include/target.mk
