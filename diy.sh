@@ -1,11 +1,7 @@
 #!/bin/bash
 #=================================================
 #sudo npm install -g github-files-fetcher && fetcher --url="https://github.com/openwrt/packages/tree/openwrt-18.06/net/miniupnpd" --out=package/feeds/
-rm -Rf package/lean
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean package/lean
-mv package/lean/v2ray package/feeds/v2ray
-rm -Rf package/lean/openwrt-fullconenat
-rm -Rf package/lean/default-settings
 rm -Rf package/lean/qBittorrent/patches
 sed -i 's/PKG_SOURCE_URL:=.*/PKG_SOURCE_URL:=https:\/\/github.com\/c0re100\/qBittorrent-Enhanced-Edition/g' package/lean/qBittorrent/Makefile
 sed -i 's/PKG_HASH.*/PKG_SOURCE_PROTO:=git\nPKG_SOURCE_VERSION:=latest/g' package/lean/qBittorrent/Makefile
@@ -42,15 +38,9 @@ git clone https://github.com/lisaac/luci-lib-docker
 git clone https://github.com/brvphoenix/luci-app-wrtbwmon
 git clone https://github.com/brvphoenix/wrtbwmon
 git clone https://github.com/destan19/OpenAppFilter
-#svn co https://github.com/maxlicheng/luci-app-unblockmusic/trunk/UnblockNeteaseMusic
-#svn co https://github.com/maxlicheng/luci-app-unblockmusic/trunk/app luci-app-unblockmusic
 svn co https://github.com/pymumu/smartdns/trunk/package/openwrt smartdns
 svn co https://github.com/project-openwrt/openwrt/trunk/package/jsda/luci-app-advancedsetting
 cd -
-#find package/feeds/*/*/* -name "*.htm" | xargs sed -i "s/action=\"<%=url(\(\"\|'\)admin\//action=\"<%=url\(\1/g"
-#find package/lean/*/* -name "*.htm" | xargs sed -i "s/action=\"<%=url(\(\"\|'\)admin/\/action=\"<%=url\(\1/g"
-#find package/feeds/*/*/* -name "*.htm" | xargs sed -i "s/\(<form .*action=\"\)<%=REQUEST_URI%>\(\" method=\"post\">\)/<script>document.write('\1'+document.URL+'\2')<\/script>/g"
-#find package/lean/*/* -name "*.htm" | xargs sed -i "s/\(<form .*action=\"\)<%=REQUEST_URI%>\(\" method=\"post\">\)/<script>document.write('\1'+document.URL+'\2')<\/script>/g"
 git clone https://github.com/MatteoRagni/AmuleWebUI-Reloaded files/usr/share/amule/webserver/AmuleWebUI-Reloaded
 git clone https://github.com/kalcaddle/KodExplorer files/www/nas
 git clone https://github.com/P3TERX/aria2.conf files/usr/share/aria2
@@ -73,14 +63,10 @@ sed -i '/switch_enable/d' package/*/luci-app-ssr-plus/root/usr/share/shadowsocks
 sed -i 's/fast_open = 0/fast_open = 1/g' package/*/luci-app-ssr-plus/root/usr/share/shadowsocksr/subscribe.lua
 sed -i 's/service_start $PROG/service_start $PROG -R/g' package/feeds/packages/php7/files/php7-fpm.init
 sed -i 's/net.netfilter.nf_conntrack_max=16384/net.netfilter.nf_conntrack_max=105535/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
-#mkdir package/network/config/firewall/patches
-#wget -P package/network/config/firewall/patches/ --no-check-certificate https://raw.githubusercontent.com/Lienol/openwrt/my-19.07-full/package/network/config/firewall/patches/fullconenat.patch
+wget -P package/network/config/firewall/patches/ --no-check-certificate https://raw.githubusercontent.com/Lienol/openwrt/my-19.07-full/package/network/config/firewall/patches/fullconenat.patch
 sed -i "s/('Drop invalid packets'));/('Drop invalid packets'));\n o = s.option(form.Flag, 'fullcone', _('Enable FullCone NAT'));/g" package/feeds/*/luci-app-firewall/htdocs/luci-static/resources/view/firewall/zones.js
-#sed -i "s/option forward		REJECT/option forward		REJECT\n	option fullcone	1/g" package/network/config/firewall/files/firewall.config
+sed -i "s/option forward		REJECT/option forward		REJECT\n	option fullcone	1/g" package/network/config/firewall/files/firewall.config
 sed -i "s/option bbr '0'/option bbr '1'/g" package/*/luci-app-flowoffload/root/etc/config/flowoffload
-#cd feeds/luci
-#wget -O- --no-check-certificate https://github.com/LGA1150/fullconenat-fw3-patch/raw/master/luci.patch | git apply
-#cd -
 getversion(){
 basename $(curl -Ls -o /dev/null -w %{url_effective} https://github.com/$1/$2/releases/latest) | grep -o -E "[0-9.]+"
 }
