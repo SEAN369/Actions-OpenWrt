@@ -39,7 +39,7 @@ git clone https://github.com/brvphoenix/luci-app-wrtbwmon
 git clone https://github.com/brvphoenix/wrtbwmon
 git clone https://github.com/destan19/OpenAppFilter
 svn co https://github.com/pymumu/smartdns/trunk/package/openwrt smartdns
-svn co https://github.com/project-openwrt/openwrt/trunk/package/jsda/luci-app-advancedsetting
+svn co https://github.com/jsda/packages2/trunk/my/luci-app-advancedsetting
 cd -
 git clone https://github.com/MatteoRagni/AmuleWebUI-Reloaded files/usr/share/amule/webserver/AmuleWebUI-Reloaded
 git clone https://github.com/kalcaddle/KodExplorer files/www/nas
