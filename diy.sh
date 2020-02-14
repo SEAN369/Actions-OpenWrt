@@ -41,6 +41,10 @@ git clone https://github.com/destan19/OpenAppFilter
 svn co https://github.com/pymumu/smartdns/trunk/package/openwrt smartdns
 svn co https://github.com/jsda/packages2/trunk/my/luci-app-advancedsetting
 svn co https://github.com/openwrt/packages/trunk/utils/docker-ce packages/docker-ce
+svn co https://github.com/openwrt/packages/trunk/utils/containerd packages/containerd
+svn co https://github.com/openwrt/packages/trunk/utils/libnetwork packages/libnetwork
+svn co https://github.com/openwrt/packages/trunk/utils/runc packages/runc
+svn co https://github.com/openwrt/packages/trunk/utils/tini packages/tini
 cd -
 git clone https://github.com/MatteoRagni/AmuleWebUI-Reloaded files/usr/share/amule/webserver/AmuleWebUI-Reloaded
 git clone https://github.com/kalcaddle/KodExplorer files/www/nas
