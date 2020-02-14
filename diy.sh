@@ -63,7 +63,7 @@ sed -i '/switch_enable/d' package/*/luci-app-ssr-plus/root/usr/share/shadowsocks
 sed -i 's/fast_open = 0/fast_open = 1/g' package/*/luci-app-ssr-plus/root/usr/share/shadowsocksr/subscribe.lua
 sed -i 's/service_start $PROG/service_start $PROG -R/g' package/feeds/packages/php7/files/php7-fpm.init
 sed -i 's/net.netfilter.nf_conntrack_max=16384/net.netfilter.nf_conntrack_max=105535/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
-wget -P package/network/config/firewall/patches/ --no-check-certificate https://raw.githubusercontent.com/Lienol/openwrt/my-19.07-full/package/network/config/firewall/patches/fullconenat.patch
+wget -P package/network/config/firewall/patches/ --no-check-certificate https://raw.githubusercontent.com/coolsnowwolf/lede/master/package/network/config/firewall/patches/fullconenat.patch
 sed -i "s/('Drop invalid packets'));/('Drop invalid packets'));\n o = s.option(form.Flag, 'fullcone', _('Enable FullCone NAT'));/g" package/feeds/*/luci-app-firewall/htdocs/luci-static/resources/view/firewall/zones.js
 sed -i "s/option forward		REJECT/option forward		REJECT\n	option fullcone	1/g" package/network/config/firewall/files/firewall.config
 sed -i "s/option bbr '0'/option bbr '1'/g" package/*/luci-app-flowoffload/root/etc/config/flowoffload
