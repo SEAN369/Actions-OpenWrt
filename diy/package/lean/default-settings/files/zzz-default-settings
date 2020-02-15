@@ -26,8 +26,8 @@ rm -rf /tmp/luci-*
 
 sed -i 's/root:.*/root:$1$ZmATL.R6$IXqlHR2CE4un3tjjxQp7F1:18302:0:99999:7:::/g' /etc/shadow
 
-#uci set luci.main.mediaurlbase=/luci-static/argon
-#uci commit luci
+uci set luci.main.mediaurlbase=/luci-static/argon
+uci commit luci
 
 uci set network.lan.ipaddr="10.0.0.2"
 uci set network.lan.ifname="eth2"
