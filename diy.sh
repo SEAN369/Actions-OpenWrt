@@ -20,7 +20,7 @@ svn co https://github.com/openwrt/packages/trunk/utils/containerd feeds/packages
 svn co https://github.com/openwrt/packages/trunk/utils/libnetwork feeds/packages/utils/libnetwork && ln -sf ../../../feeds/packages/utils/libnetwork package/feeds/packages/libnetwork
 svn co https://github.com/openwrt/packages/trunk/utils/runc feeds/packages/utils/runc && ln -sf ../../../feeds/packages/utils/runc package/feeds/packages/runc
 svn co https://github.com/openwrt/packages/trunk/utils/tini feeds/packages/utils/tini && ln -sf ../../../feeds/packages/utils/tini package/feeds/packages/tini
-svn co https://github.com/openwrt/packages/trunk/utils/cgroupfs-mount feeds/packages/utils/cgroupfs-mount && ln -sf ../../../feeds/packages/utils/tini package/feeds/packages/cgroupfs-mount
+svn co https://github.com/openwrt/packages/trunk/utils/cgroupfs-mount feeds/packages/utils/cgroupfs-mount && ln -sf ../../../feeds/packages/utils/cgroupfs-mount package/feeds/packages/cgroupfs-mount
 cd package/feeds
 #git clone https://github.com/Lienol/openwrt-package
 git clone https://github.com/garypang13/op-app.git
