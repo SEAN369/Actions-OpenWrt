@@ -16,6 +16,11 @@ sed -i 's/\("SuperSeeding"\)/\1 "trackerEnabled" "trackerPort"/g' package/lean/l
 #git clone https://github.com/garypang13/aria2-patch package/feeds/packages/aria2/patches/
 wget -P package/feeds/packages/aria2/patches/ --no-check-certificate https://raw.githubusercontent.com/garypang13/aria2-patch/master/aria2-fast.patch
 svn co https://github.com/coolsnowwolf/lede/trunk/package/kernel/antfs package/kernel/antfs
+svn co https://github.com/openwrt/packages/trunk/utils/docker-ce feeds/packages/utils/docker-ce
+svn co https://github.com/openwrt/packages/trunk/utils/containerd feeds/packages/utils/containerd
+svn co https://github.com/openwrt/packages/trunk/utils/libnetwork feeds/packages/utils/libnetwork
+svn co https://github.com/openwrt/packages/trunk/utils/runc feeds/packages/utils/runc
+svn co https://github.com/openwrt/packages/trunk/utils/tini feeds/packages/utils/tini
 cd package/feeds
 #git clone https://github.com/Lienol/openwrt-package
 git clone https://github.com/garypang13/op-app.git
@@ -40,11 +45,7 @@ git clone https://github.com/brvphoenix/wrtbwmon
 git clone https://github.com/destan19/OpenAppFilter
 svn co https://github.com/pymumu/smartdns/trunk/package/openwrt smartdns
 svn co https://github.com/jsda/packages2/trunk/my/luci-app-advancedsetting
-svn co https://github.com/openwrt/packages/trunk/utils/docker-ce packages/docker-ce
-svn co https://github.com/openwrt/packages/trunk/utils/containerd packages/containerd
-svn co https://github.com/openwrt/packages/trunk/utils/libnetwork packages/libnetwork
-svn co https://github.com/openwrt/packages/trunk/utils/runc packages/runc
-svn co https://github.com/openwrt/packages/trunk/utils/tini packages/tini
+
 cd -
 git clone https://github.com/MatteoRagni/AmuleWebUI-Reloaded files/usr/share/amule/webserver/AmuleWebUI-Reloaded
 git clone https://github.com/kalcaddle/KodExplorer files/www/nas
