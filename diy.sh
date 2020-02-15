@@ -15,12 +15,12 @@ sed -i 's/\("uTP_rate_limited"\)/\1 "AutoUpdateTrackers" "CustomizeTrackersListU
 sed -i 's/\("SuperSeeding"\)/\1 "trackerEnabled" "trackerPort"/g' package/lean/luci-app-qbittorrent/root/etc/init.d/qbittorrent
 #git clone https://github.com/garypang13/aria2-patch package/feeds/packages/aria2/patches/
 wget -P package/feeds/packages/aria2/patches/ --no-check-certificate https://raw.githubusercontent.com/garypang13/aria2-patch/master/aria2-fast.patch
-svn co https://github.com/openwrt/packages/trunk/utils/docker-ce feeds/packages/utils/docker-ce && ln -sf ../../../feeds/packages/utils/docker-ce package/feeds/packages/docker-ce
-svn co https://github.com/openwrt/packages/trunk/utils/containerd feeds/packages/utils/containerd && ln -sf ../../../feeds/packages/utils/containerd package/feeds/packages/containerd
-svn co https://github.com/openwrt/packages/trunk/utils/libnetwork feeds/packages/utils/libnetwork && ln -sf ../../../feeds/packages/utils/libnetwork package/feeds/packages/libnetwork
-svn co https://github.com/openwrt/packages/trunk/utils/runc feeds/packages/utils/runc && ln -sf ../../../feeds/packages/utils/runc package/feeds/packages/runc
-svn co https://github.com/openwrt/packages/trunk/utils/tini feeds/packages/utils/tini && ln -sf ../../../feeds/packages/utils/tini package/feeds/packages/tini
-svn co https://github.com/openwrt/packages/trunk/utils/cgroupfs-mount feeds/packages/utils/cgroupfs-mount && ln -sf ../../../feeds/packages/utils/cgroupfs-mount package/feeds/packages/cgroupfs-mount
+#svn co https://github.com/openwrt/packages/trunk/utils/docker-ce feeds/packages/utils/docker-ce && ln -sf ../../../feeds/packages/utils/docker-ce package/feeds/packages/docker-ce
+#svn co https://github.com/openwrt/packages/trunk/utils/containerd feeds/packages/utils/containerd && ln -sf ../../../feeds/packages/utils/containerd package/feeds/packages/containerd
+#svn co https://github.com/openwrt/packages/trunk/utils/libnetwork feeds/packages/utils/libnetwork && ln -sf ../../../feeds/packages/utils/libnetwork package/feeds/packages/libnetwork
+#svn co https://github.com/openwrt/packages/trunk/utils/runc feeds/packages/utils/runc && ln -sf ../../../feeds/packages/utils/runc package/feeds/packages/runc
+#svn co https://github.com/openwrt/packages/trunk/utils/tini feeds/packages/utils/tini && ln -sf ../../../feeds/packages/utils/tini package/feeds/packages/tini
+#svn co https://github.com/openwrt/packages/trunk/utils/cgroupfs-mount feeds/packages/utils/cgroupfs-mount && ln -sf ../../../feeds/packages/utils/cgroupfs-mount package/feeds/packages/cgroupfs-mount
 cd package/feeds
 #git clone https://github.com/Lienol/openwrt-package
 git clone https://github.com/garypang13/op-app.git
