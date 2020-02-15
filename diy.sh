@@ -19,8 +19,8 @@ svn co https://github.com/coolsnowwolf/lede/trunk/package/kernel/antfs package/k
 svn co https://github.com/openwrt/packages/trunk/utils/docker-ce feeds/packages/utils/docker-ce && ln -sf feeds/packages/utils/docker-ce package/feeds/packages/docker-ce
 svn co https://github.com/openwrt/packages/trunk/utils/containerd feeds/packages/utils/containerd && ln -sf feeds/packages/utils/containerd package/feeds/packages/containerd
 svn co https://github.com/openwrt/packages/trunk/utils/libnetwork feeds/packages/utils/libnetwork && ln -sf feeds/packages/utils/libnetwork package/feeds/packages/libnetwork
-svn co https://github.com/openwrt/packages/trunk/utils/runc feeds/packages/utils/runc && ln -sf feeds/packages/utils/runc package/feeds/packages/runc
-svn co https://github.com/openwrt/packages/trunk/utils/tini feeds/packages/utils/tini && ln -sf feeds/packages/utils/tini package/feeds/packages/tini
+svn co https://github.com/openwrt/packages/trunk/utils/runc feeds/packages/utils/runc && ln -sf /feeds/packages/utils/runc package/feeds/packages/runc
+svn co https://github.com/openwrt/packages/trunk/utils/tini feeds/packages/utils/tini && ln -sf /feeds/packages/utils/tini package/feeds/packages/tini
 cd package/feeds
 #git clone https://github.com/Lienol/openwrt-package
 git clone https://github.com/garypang13/op-app.git
