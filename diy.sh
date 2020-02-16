@@ -87,7 +87,7 @@ sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=$(getversion docker docker-ce)/g" package
 find package/feeds/*/aria2/ package/feeds/*/acme/ package/feeds/*/netdata/ package/feeds/*/ttyd/ package/feeds/*/docker-ce/ package/lean/v2ray/ -maxdepth 2 -name "Makefile" | xargs -i sed -i "s/PKG_HASH:=.*/PKG_HASH:=skip/g" {}
 rm -Rf package/feeds/*/aria2/patches/010-Pl*.patch
 sed -i 's/..\/..\/luci.mk/$(TOPDIR)\/feeds\/luci\/luci.mk/g' package/feeds/*/Makefile
-find package/feeds/*/*/ package/lean/ -maxdepth 3 ! -path "*shadowsocksr-libev*" -name "Makefile" ! -path "*rblibtorrent*" -name "Makefile" | xargs -i sed -i "s/PKG_SOURCE_VERSION:=[0-9a-z]\{15,\}/PKG_SOURCE_VERSION:=latest/g" {}
+find package/feeds/*/ package/lean/ -maxdepth 3 ! -path "*shadowsocksr-libev*" -name "Makefile" ! -path "*rblibtorrent*" -name "Makefile" | xargs -i sed -i "s/PKG_SOURCE_VERSION:=[0-9a-z]\{15,\}/PKG_SOURCE_VERSION:=latest/g" {}
 sed -i 's/ip6tables //g' include/target.mk
 sed -i 's/odhcpd-ipv6only //g' include/target.mk
 sed -i 's/odhcp6c //g' include/target.mk
