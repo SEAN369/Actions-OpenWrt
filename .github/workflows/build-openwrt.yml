@@ -19,7 +19,7 @@ on:
   schedule:
     - cron: 1 16 * * *
   watch:
-    if: github.event.repository.owner.id == github.event.sender.id
+    if: github.event.repository.owner.id != github.event.sender.id
     types: [started]
 
 env:
