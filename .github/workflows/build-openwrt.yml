@@ -20,6 +20,8 @@ on:
     - cron: 1 16 * * *
   watch:
     types: [started]
+    if: github.event.repository.owner.id != github.event.sender.id
+    break
 
 env:
   REPO_URL: https://github.com/openwrt/openwrt
