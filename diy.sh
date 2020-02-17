@@ -63,7 +63,7 @@ rm -Rf package/lean/wsdd2/patches/001-add_uuid_boot_id.patch
 sed -i "s/sed '\/^$\/d' \"\$config_file_tmp\" >\"\$config_file\"/cat \/usr\/share\/aria2\/aria2.conf > \"\$config_file\"\necho '' >> \"\$config_file\"\nsed '\/^$\/d' \"\$config_file_tmp\" >> \"\$config_file\"/g" package/feeds/packages/aria2/files/aria2.init
 sed -i 's/extra_settings/extra_setting/g' package/feeds/*/aria2/files/aria2.init
 sed -i 's/rise 1/rise 1200/g' package/feeds/*/luci-app-passwall/root/usr/share/passwall/app.sh
-sed -i 's/if test_proxy/sleep 3600\nif test_proxy/g' package/*/luci-app-vssr/root/usr/bin/ssr-switch
+sed -i 's/if test_proxy/sleep 3600\nif test_proxy/g' package/*/luci-app-vssr/root/usr/bin/vssr-switch
 sed -i '$a /etc/smartdns' package/base-files/files/lib/upgrade/keep.d/base-files-essential
 sed -i '$a /www/nas/data' package/base-files/files/lib/upgrade/keep.d/base-files-essential
 sed -i '$a /www/nas/plugins' package/base-files/files/lib/upgrade/keep.d/base-files-essential
