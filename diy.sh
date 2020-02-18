@@ -54,6 +54,7 @@ cd -
 git clone https://github.com/MatteoRagni/AmuleWebUI-Reloaded files/usr/share/amule/webserver/AmuleWebUI-Reloaded
 git clone https://github.com/kalcaddle/KodExplorer files/www/nas
 git clone https://github.com/P3TERX/aria2.conf files/usr/share/aria2
+svn co https://github.com/coolsnowwolf/lede/trunk/tools/upx tools/upx
 sed -i 's/root\/.aria2/usr\/share\/aria2/g' files/usr/share/aria2/aria2.conf
 sed -i '/rpc-secret/d' files/usr/share/aria2/aria2.conf
 sed -i 's/+uhttpd //g' feeds/luci/collections/luci/Makefile
