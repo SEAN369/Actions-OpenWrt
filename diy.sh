@@ -25,6 +25,11 @@ wget -P package/feeds/packages/aria2/patches/ --no-check-certificate https://raw
 #svn co https://github.com/openwrt/packages/trunk/utils/tini feeds/packages/utils/tini && ln -sf ../../../feeds/packages/utils/tini package/feeds/packages/tini
 #svn co https://github.com/openwrt/packages/trunk/utils/cgroupfs-mount feeds/packages/utils/cgroupfs-mount && ln -sf ../../../feeds/packages/utils/cgroupfs-mount package/feeds/packages/cgroupfs-mount
 git clone https://github.com/mayswind/AriaNg-DailyBuild /files/www/ng
+git clone https://github.com/MatteoRagni/AmuleWebUI-Reloaded files/usr/share/amule/webserver/AmuleWebUI-Reloaded
+git clone https://github.com/kalcaddle/KodExplorer files/www/nas
+git clone https://github.com/P3TERX/aria2.conf files/usr/share/aria2
+svn co https://github.com/coolsnowwolf/lede/trunk/tools/upx tools/upx
+
 cd package/feeds
 #git clone https://github.com/Lienol/openwrt-package
 git clone https://github.com/garypang13/op-app.git
@@ -49,12 +54,8 @@ git clone https://github.com/brvphoenix/wrtbwmon
 git clone https://github.com/destan19/OpenAppFilter
 svn co https://github.com/pymumu/smartdns/trunk/package/openwrt smartdns
 svn co https://github.com/jsda/packages2/trunk/ntlf9t/luci-app-advancedsetting
-
 cd -
-git clone https://github.com/MatteoRagni/AmuleWebUI-Reloaded files/usr/share/amule/webserver/AmuleWebUI-Reloaded
-git clone https://github.com/kalcaddle/KodExplorer files/www/nas
-git clone https://github.com/P3TERX/aria2.conf files/usr/share/aria2
-svn co https://github.com/coolsnowwolf/lede/trunk/tools/upx tools/upx
+
 sed -i 's/root\/.aria2/usr\/share\/aria2/g' files/usr/share/aria2/aria2.conf
 sed -i '/rpc-secret/d' files/usr/share/aria2/aria2.conf
 sed -i 's/+uhttpd //g' feeds/luci/collections/luci/Makefile
