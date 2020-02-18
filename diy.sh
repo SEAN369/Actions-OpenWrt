@@ -28,7 +28,6 @@ git clone https://github.com/mayswind/AriaNg-DailyBuild /files/www/ng
 git clone https://github.com/MatteoRagni/AmuleWebUI-Reloaded files/usr/share/amule/webserver/AmuleWebUI-Reloaded
 git clone https://github.com/kalcaddle/KodExplorer files/www/nas
 git clone https://github.com/P3TERX/aria2.conf files/usr/share/aria2
-svn co https://github.com/coolsnowwolf/lede/trunk/tools/upx tools/upx
 
 cd package/feeds
 #git clone https://github.com/Lienol/openwrt-package
