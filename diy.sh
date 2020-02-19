@@ -3,7 +3,6 @@
 #sudo npm install -g github-files-fetcher && fetcher --url="https://github.com/openwrt/packages/tree/openwrt-18.06/net/miniupnpd" --out=package/feeds/
 svn co --force https://github.com/coolsnowwolf/lede/trunk/package/lean package/lean && svn revert -R package/lean
 rm -Rf package/lean/luci-app-ssr-plus
-cp -Rf ../diy/* ./
 rm -Rf package/lean/qBittorrent/patches
 sed -i 's/PKG_SOURCE_URL:=.*/PKG_SOURCE_URL:=https:\/\/github.com\/c0re100\/qBittorrent-Enhanced-Edition/g' package/lean/qBittorrent/Makefile
 sed -i 's/PKG_HASH.*/PKG_SOURCE_PROTO:=git\nPKG_SOURCE_VERSION:=latest/g' package/lean/qBittorrent/Makefile
@@ -56,6 +55,7 @@ svn co https://github.com/jsda/packages2/trunk/ntlf9t/luci-app-advancedsetting
 git clone https://github.com/jerrykuku/lua-maxminddb.git
 cd -
 
+cp -Rf ../diy/* ./
 sed -i 's/root\/.aria2/usr\/share\/aria2/g' files/usr/share/aria2/aria2.conf
 sed -i '/rpc-secret/d' files/usr/share/aria2/aria2.conf
 sed -i 's/+uhttpd //g' feeds/luci/collections/luci/Makefile
