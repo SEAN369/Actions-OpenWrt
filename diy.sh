@@ -53,6 +53,7 @@ git clone https://github.com/brvphoenix/wrtbwmon
 git clone https://github.com/destan19/OpenAppFilter
 svn co https://github.com/pymumu/smartdns/trunk/package/openwrt smartdns
 svn co https://github.com/jsda/packages2/trunk/ntlf9t/luci-app-advancedsetting
+git clone https://github.com/jerrykuku/lua-maxminddb.git
 cd -
 
 sed -i 's/root\/.aria2/usr\/share\/aria2/g' files/usr/share/aria2/aria2.conf
