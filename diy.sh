@@ -1,6 +1,7 @@
 #!/bin/bash
 #=================================================
 svn co --force https://github.com/coolsnowwolf/lede/trunk/package/lean package/lean && svn revert -R package/lean
+rm -Rf package/lean/luci-app-ssr-plus
 rm -Rf package/lean/qBittorrent/patches
 sed -i 's/PKG_SOURCE_URL:=.*/PKG_SOURCE_URL:=https:\/\/github.com\/c0re100\/qBittorrent-Enhanced-Edition/g' package/lean/qBittorrent/Makefile
 sed -i 's/PKG_HASH.*/PKG_SOURCE_PROTO:=git\nPKG_SOURCE_VERSION:=latest/g' package/lean/qBittorrent/Makefile
@@ -29,7 +30,6 @@ git clone https://github.com/rufengsuixing/luci-app-adguardhome
 git clone https://github.com/jerrykuku/luci-theme-argon
 git clone https://github.com/pymumu/luci-app-smartdns
 # git clone https://github.com/LGA1150/openwrt-fullconenat
-#git clone https://github.com/rufengsuixing/luci-app-onliner
 git clone https://github.com/lisaac/luci-app-diskman
 mkdir parted && cp luci-app-diskman/Parted.Makefile parted/Makefile
 # git clone https://github.com/mchome/luci-app-vlmcsd
@@ -37,7 +37,7 @@ mkdir parted && cp luci-app-diskman/Parted.Makefile parted/Makefile
 # git clone https://github.com/KFERMercer/openwrt-v2ray v2ray
 git clone https://github.com/lovelyOK/luci-app-haproxy-tcp
 git clone https://github.com/tty228/luci-app-serverchan
-# git clone https://github.com/jerrykuku/luci-app-vssr
+git clone https://github.com/jerrykuku/luci-app-vssr
 git clone https://github.com/lisaac/luci-app-dockerman
 git clone https://github.com/lisaac/luci-lib-docker
 git clone https://github.com/brvphoenix/luci-app-wrtbwmon
@@ -45,7 +45,7 @@ git clone https://github.com/brvphoenix/wrtbwmon
 git clone https://github.com/destan19/OpenAppFilter
 svn co https://github.com/pymumu/smartdns/trunk/package/openwrt smartdns
 svn co https://github.com/jsda/packages2/trunk/ntlf9t/luci-app-advancedsetting
-# git clone https://github.com/jerrykuku/lua-maxminddb.git
+git clone https://github.com/jerrykuku/lua-maxminddb.git
 cd -
 
 cp -Rf ../diy/* ./
@@ -57,18 +57,13 @@ rm -Rf package/lean/wsdd2/patches/001-add_uuid_boot_id.patch
 #sed -i 's/conf.$section/conf/g' package/feeds/packages/aria2/files/aria2.init
 sed -i "s/sed '\/^$\/d' \"\$config_file_tmp\" >\"\$config_file\"/cat \/usr\/share\/aria2\/aria2.conf > \"\$config_file\"\necho '' >> \"\$config_file\"\nsed '\/^$\/d' \"\$config_file_tmp\" >> \"\$config_file\"/g" package/feeds/packages/aria2/files/aria2.init
 sed -i 's/extra_settings/extra_setting/g' package/feeds/*/aria2/files/aria2.init
-# sed -i 's/rise 1/rise 1200/g' package/feeds/*/luci-app-passwall/root/usr/share/passwall/app.sh
 sed -i '$a /etc/smartdns' package/base-files/files/lib/upgrade/keep.d/base-files-essential
 sed -i '$a /www/nas/data' package/base-files/files/lib/upgrade/keep.d/base-files-essential
 sed -i '$a /www/nas/plugins' package/base-files/files/lib/upgrade/keep.d/base-files-essential
 find target/linux/x86 -name "config*" | xargs -i sed -i '$a # CONFIG_WLAN is not set\n# CONFIG_WIRELESS is not set\nCONFIG_NETFILTER_XT_MATCH_STRING=m' {}
 #sed -i 's/fast_open="0"/fast_open="1"/g' package/*/luci-app-passwall/root/usr/share/passwall/subscription.sh
-#sed -i 's/if test_proxy/sleep 3600\nif test_proxy/g' package/*/luci-app-vssr/root/usr/bin/vssr-switch
-sed -i 's/if test_proxy/sleep 3600\nif test_proxy/g' package/*/luci-app-ssr-plus/root/usr/bin/ssr-switch
-# sed -i '/switch_enable/d' package/*/luci-app-vssr/root/usr/share/vssr/subscribe.lua
-sed -i '/switch_enable/d' package/*/luci-app-ssr-plus/root/usr/share/shadowsocksr/subscribe.lua
-# sed -i 's/fast_open = 0/fast_open = 1/g' package/*/luci-app-vssr/root/usr/share/vssr/subscribe.lua
-sed -i 's/fast_open = 0/fast_open = 1/g' package/*/luci-app-ssr-plus/root/usr/share/shadowsocksr/subscribe.lua
+sed -i 's/if test_proxy/sleep 3600\nif test_proxy/g' package/*/luci-app-vssr/root/usr/bin/vssr-switch
+sed -i 's/fast_open = 0/fast_open = 1/g' package/*/luci-app-vssr/root/usr/share/vssr/subscribe.lua
 sed -i 's/service_start $PROG/service_start $PROG -R/g' package/feeds/packages/php7/files/php7-fpm.init
 sed -i 's/net.netfilter.nf_conntrack_max=16384/net.netfilter.nf_conntrack_max=105535/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
 wget -P package/network/config/firewall/patches/ --no-check-certificate https://raw.githubusercontent.com/coolsnowwolf/lede/master/package/network/config/firewall/patches/fullconenat.patch
