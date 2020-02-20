@@ -50,6 +50,8 @@ ln -f /etc/netdata/charts.d.conf /usr/lib/netdata/conf.d/charts.d.conf
 ln -f /etc/netdata/python.d.conf /usr/lib/netdata/conf.d/python.d.conf
 
 echo net.ipv6.conf.all.disable_ipv6=1 >> /etc/sysctl.conf
+echo net.ipv6.conf.default.disable_ipv6=1 >> /etc/sysctl.conf
+
 exit 0
 
 
