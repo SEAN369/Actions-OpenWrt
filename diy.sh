@@ -76,7 +76,7 @@ basename $(curl -Ls -o /dev/null -w %{url_effective} https://github.com/$1/$2/re
 sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=$(getversion v2ray v2ray-core)/g" package/lean/v2ray/Makefile
 sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=$(getversion aria2 aria2)/g" package/feeds/*/aria2/Makefile
 sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=$(getversion Neilpang acme.sh)/g" package/feeds/*/acme/Makefile
-# sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=$(getversion netdata netdata)/g" package/feeds/*/netdata/Makefile
+sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=$(getversion netdata netdata)/g" package/feeds/*/netdata/Makefile
 sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=$(getversion tsl0922 ttyd)/g" package/feeds/*/ttyd/Makefile
 sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=$(getversion docker docker-ce)/g" package/feeds/*/docker-ce/Makefile
 find package/feeds/*/aria2/ package/feeds/*/acme/ package/feeds/*/netdata/ package/feeds/*/ttyd/ package/feeds/*/docker-ce/ package/lean/v2ray/ -maxdepth 2 -name "Makefile" | xargs -i sed -i "s/PKG_HASH:=.*/PKG_HASH:=skip/g" {}
