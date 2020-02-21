@@ -124,4 +124,4 @@ jobs:
         tag: ${{ github.ref }}
         overwrite: true
         file_glob: true
-        path: ${{ env.FIRMWARE }}
+        file: ${{ env.FIRMWARE }}/*
