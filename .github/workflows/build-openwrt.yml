@@ -121,7 +121,7 @@ jobs:
       if: steps.organize.outputs.status == 'success' && !cancelled()
       with:
         repo_token: ${{ secrets.repo_token }}
+        file: ${{ env.FIRMWARE }}/*
         tag: ${{ github.ref }}
         overwrite: true
         file_glob: true
-        file: ${{ env.FIRMWARE }}/*
