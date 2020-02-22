@@ -39,6 +39,6 @@ jobs:
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
         file: /home/runner/work/*
-        tag: ${{ Sys.time() }}
+        tag: date::$(date +'%Y-%m-%d')
         overwrite: true
         file_glob: true
