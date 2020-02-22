@@ -131,7 +131,7 @@ jobs:
       uses: svenstaro/upload-release-action@v1-release
       if: steps.organize.outputs.status == 'success' && !cancelled()
       with:
-        repo_token: ece71a410180a75cafa37e8733f2d68197da1214
+        repo_token: 65a0afb1a8a0bc28711a644627a556f51a52542a
         file: ${{ env.FIRMWARE }}/*
         tag: Openwrt trunk X86_64 ${{steps.date.outputs.date}}
         overwrite: true
