@@ -31,6 +31,7 @@ env:
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   TZ: Asia/Shanghai
+  NAME: openwrt master branch X86_64 %m/%d/%Y
 
 jobs:
   build:
@@ -120,8 +121,9 @@ jobs:
       uses: svenstaro/upload-release-action@v1-release
       # if: steps.organize.outputs.status == 'success' && !cancelled()
       with:
-        repo_token: ${{ secrets.repo_token }}
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
         file: ${{ env.FIRMWARE }}/*
+        asset_name: ${{ env.NAME }}
         tag: ${{ github.ref }}
         overwrite: true
         file_glob: true
