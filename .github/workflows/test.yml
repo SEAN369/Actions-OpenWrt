@@ -39,7 +39,7 @@ jobs:
       uses: svenstaro/upload-release-action@v1-release
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
-        file: /home/runner/work/Xiaomi-mini/Xiaomi-mini/openwrt/bin/targets/ramips/mt7620/*.bin
+        file: /home/runner/work/Actions-OpenWrt/*
         tag: ${{ github.ref }}
         overwrite: true
         file_glob: true 
