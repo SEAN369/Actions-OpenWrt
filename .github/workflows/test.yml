@@ -41,7 +41,7 @@ jobs:
     - name: Upload binaries to release
       uses: svenstaro/upload-release-action@v1-release
       with:
-        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        repo_token: 3e477c7d46bd53aea060eb8df0dcd72c7a804fdf
         file: /home/runner/work/*
         tag: ${{steps.date.outputs.date}}
         overwrite: true
