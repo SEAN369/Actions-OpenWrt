@@ -1,0 +1,47 @@
+#=================================================
+# https://github.com/P3TERX/Actions-OpenWrt
+# Description: Build OpenWrt using GitHub Actions
+# Lisence: MIT
+# Author: P3TERX
+# Blog: https://p3terx.com
+#=================================================
+
+name: Xiaomi Mini OpenWrt
+
+on:
+  release:
+    types: [published]
+  push:
+    branches:
+      - master
+    paths:
+      - '.config'
+  schedule:
+    - cron: 0 1 * * 5
+#  watch:
+#    types: [started]
+    
+env:
+  REPO_URL: https://github.com/Lienol/openwrt
+  REPO_BRANCH: master
+  CONFIG_FILE: .config
+  DIY_SH: diy.sh
+  FREE_UP_DISK: true
+  SSH_ACTIONS: false
+  UPLOAD_BIN_DIR: false
+  UPLOAD_FIRMWARE: true
+  TZ: Asia/Shanghai
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Upload binaries to release
+      uses: svenstaro/upload-release-action@v1-release
+      with:
+        repo_token: ${{ secrets.repo_token }}
+        file: /home/runner/work/Xiaomi-mini/Xiaomi-mini/openwrt/bin/targets/ramips/mt7620/*.bin
+        tag: ${{ github.ref }}
+        overwrite: true
+        file_glob: true 
