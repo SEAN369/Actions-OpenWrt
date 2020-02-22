@@ -41,7 +41,7 @@ jobs:
     - name: Upload binaries to release
       uses: svenstaro/upload-release-action@v1-release
       with:
-        repo_token: ${{ secrets.openwrt }}
+        repo_token: ${{ secrets.REPO_TOKEN }}
         file: /home/runner/work/*
         tag: ${{steps.date.outputs.date}}
         overwrite: true
