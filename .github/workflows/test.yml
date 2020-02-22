@@ -29,6 +29,7 @@ env:
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   TZ: Asia/Shanghai
+  TOKEN: 211d93f221ea1e6945677e4840937189136fcb39
 
 jobs:
   build:
