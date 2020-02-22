@@ -29,7 +29,6 @@ env:
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   TZ: Asia/Shanghai
-  TOKEN: c19f4748b7874642c87f8a51866819a2fac744d2
 
 jobs:
   build:
@@ -42,7 +41,7 @@ jobs:
     - name: Upload binaries to release
       uses: svenstaro/upload-release-action@v1-release
       with:
-        repo_token: 3e477c7d46bd53aea060eb8df0dcd72c7a804fdf
+        repo_token: ${{ secrets.openwrt }}
         file: /home/runner/work/*
         tag: ${{steps.date.outputs.date}}
         overwrite: true
