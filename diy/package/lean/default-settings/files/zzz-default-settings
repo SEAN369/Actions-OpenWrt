@@ -38,7 +38,7 @@ uci set network.wan.password=139715
 uci commit network
 
 /etc/init.d/amule disable
-chmod -R 777 /www/nas/
+chmod -R 755 /www/nas/ /usr/share/aria2
 cp -R /www/cgi-bin/* /www/
 
 ln -sf /usr/bin/python3 /usr/bin/python
