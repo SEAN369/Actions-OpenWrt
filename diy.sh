@@ -21,7 +21,6 @@ git clone https://github.com/mayswind/AriaNg-DailyBuild /files/www/ng
 git clone https://github.com/MatteoRagni/AmuleWebUI-Reloaded files/usr/share/amule/webserver/AmuleWebUI-Reloaded
 git clone https://github.com/kalcaddle/KodExplorer files/www/nas
 git clone https://github.com/P3TERX/aria2.conf files/usr/share/aria2
-# svn co --force https://github.com/openwrt/packages/branches/openwrt-19.07/utils/coreutils feeds/packages/utils/coreutils && svn revert -R feeds/packages/utils/coreutils
 
 cd package/feeds
 #git clone https://github.com/Lienol/openwrt-package
