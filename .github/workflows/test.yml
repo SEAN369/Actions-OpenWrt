@@ -9,13 +9,13 @@
 name: Build OpenWrt
 
 on: 
-   release:
+  release:
     types: [published]
- # push:
- #   branches: 
- #     - master
- #   paths:
- #     - '.config'
+  # push:
+  #   branches: 
+  #     - master
+  #   paths:
+  #     - '.config'
   schedule:
     - cron: 0 16 * * 6
   watch:
@@ -42,10 +42,9 @@ jobs:
         
     - name: Upload binaries to release
       uses: svenstaro/upload-release-action@v1-release
-      if: steps.organize.outputs.status == 'success' && !cancelled()
       with:
         repo_token: ${{ secrets.REPO_TOKEN }}
-        file: ${{ env.FIRMWARE }}/*
+        file: /home/runner/work/Actions-OpenWrt/*
         tag: Openwrt trunk X86_64 ${{steps.date.outputs.date}}
         overwrite: true
         file_glob: true
