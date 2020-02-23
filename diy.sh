@@ -11,7 +11,8 @@ sed -i '/PKG_BUILD_DIR/d' package/lean/qBittorrent/Makefile
 sed -i 's/+python/+python3/g' package/lean/luci-app-qbittorrent/Makefile
 sed -i 's/PKG_SOURCE_URL:=.*/PKG_SOURCE_URL:=https:\/\/github.com\/persmule\/amule-dlp/g' package/lean/amule/Makefile
 rm -Rf package/lean/amule/patches/001-amule-dlp.patch
-sed -i "s/\('SaveTime:string'\)/\1 'AutoUpdateTrackers:or(\"true\",\"false\"):true' 'CustomizeTrackersListUrl:string:https:\/\/trackerslist.com\/all.txt' 'trackerEnabled:or(\"true\",\"false\"):true' 'trackerPort:integer'/g" package/lean/luci-app-qbittorrent/root/etc/init.d/qbittorrent
+sed -i "s/\('SaveTime:string'\)/\1 'AutoUpdateTrackers:or(\"true\",\"false\"):true' 'CustomizeTrackersListUrl:string:https:\/\/trackerslist.com\/all.txt' \
+'trackerEnabled:or(\"true\",\"false\"):true' 'trackerPort:integer'/g" package/lean/luci-app-qbittorrent/root/etc/init.d/qbittorrent
 sed -i 's/\("uTP_rate_limited"\)/\1 "AutoUpdateTrackers" "CustomizeTrackersListUrl"/g' package/lean/luci-app-qbittorrent/root/etc/init.d/qbittorrent
 sed -i 's/\("SuperSeeding"\)/\1 "trackerEnabled" "trackerPort"/g' package/lean/luci-app-qbittorrent/root/etc/init.d/qbittorrent
 #git clone https://github.com/garypang13/aria2-patch package/feeds/packages/aria2/patches/
@@ -55,7 +56,8 @@ sed -i 's/+uhttpd //g' feeds/luci/collections/luci/Makefile
 rm -Rf package/lean/wsdd2/patches/001-add_uuid_boot_id.patch
 #rm -Rf package/feeds/packages/haproxy/files/haproxy.init
 #sed -i 's/conf.$section/conf/g' package/feeds/packages/aria2/files/aria2.init
-sed -i "s/sed '\/^$\/d' \"\$config_file_tmp\" >\"\$config_file\"/cat \/usr\/share\/aria2\/aria2.conf > \"\$config_file\"\necho '' >> \"\$config_file\"\nsed '\/^$\/d' \"\$config_file_tmp\" >> \"\$config_file\"/g" package/feeds/packages/aria2/files/aria2.init
+sed -i "s/sed '\/^$\/d' \"\$config_file_tmp\" >\"\$config_file\"/cat \/usr\/share\/aria2\/aria2.conf > \"\$config_file\"\necho '' >> \
+\"\$config_file\"\nsed '\/^$\/d' \"\$config_file_tmp\" >> \"\$config_file\"/g" package/feeds/packages/aria2/files/aria2.init
 sed -i 's/extra_settings/extra_setting/g' package/feeds/*/aria2/files/aria2.init
 sed -i '$a /etc/smartdns' package/base-files/files/lib/upgrade/keep.d/base-files-essential
 sed -i '$a /www/nas/data' package/base-files/files/lib/upgrade/keep.d/base-files-essential
@@ -66,8 +68,9 @@ sed -i 's/if test_proxy/sleep 3600\nif test_proxy/g' package/*/luci-app-vssr/roo
 sed -i 's/.*fast_open = 0/fast_open = 1/g' package/*/luci-app-vssr/root/usr/share/vssr/subscribe.lua
 sed -i 's/service_start $PROG/service_start $PROG -R/g' package/feeds/packages/php7/files/php7-fpm.init
 sed -i 's/net.netfilter.nf_conntrack_max=16384/net.netfilter.nf_conntrack_max=105535/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
-wget -P package/network/config/firewall/patches/ --no-check-certificate https://raw.githubusercontent.com/coolsnowwolf/lede/master/package/network/config/firewall/patches/fullconenat.patch
-sed -i "s/('Drop invalid packets'));/('Drop invalid packets'));\n o = s.option(form.Flag, 'fullcone', _('Enable FullCone NAT'));/g" package/feeds/*/luci-app-firewall/htdocs/luci-static/resources/view/firewall/zones.js
+wget -P package/network/config/firewall/patches/ https://github.com/coolsnowwolf/lede/raw/master/package/network/config/firewall/patches/fullconenat.patch
+sed -i "s/('Drop invalid packets'));/('Drop invalid packets'));\n o = s.option(form.Flag, 'fullcone', _('Enable FullCone NAT'));/g" \
+package/feeds/*/luci-app-firewall/htdocs/luci-static/resources/view/firewall/zones.js
 sed -i "s/option forward		REJECT/option forward		REJECT\n	option fullcone	1/g" package/network/config/firewall/files/firewall.config
 sed -i "s/option bbr '0'/option bbr '1'/g" package/*/luci-app-flowoffload/root/etc/config/flowoffload
 getversion(){
@@ -79,8 +82,12 @@ sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=$(getversion Neilpang acme.sh)/g" package
 # sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=$(getversion netdata netdata)/g" package/feeds/*/netdata/Makefile
 sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=$(getversion tsl0922 ttyd)/g" package/feeds/*/ttyd/Makefile
 sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=$(getversion docker docker-ce)/g" package/feeds/*/docker-ce/Makefile
-find package/feeds/*/aria2/ package/feeds/*/acme/ package/feeds/*/netdata/ package/feeds/*/ttyd/ package/feeds/*/docker-ce/ package/lean/v2ray/ -maxdepth 2 -name "Makefile" | xargs -i sed -i "s/PKG_HASH:=.*/PKG_HASH:=skip/g" {}
+sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=$(getversion cifsd-team cifsd)/g" package/feeds/*/ksmbd/Makefile
+sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=$(getversion cifsd-team cifsd-tools)/g" package/feeds/*/cifsd-tools/Makefile
+find package/feeds/*/aria2/ package/feeds/*/acme/ package/feeds/*/netdata/ package/feeds/*/ttyd/ package/feeds/*/docker-ce/ \
+package/lean/v2ray/ package/feeds/*/ksmbd/ package/feeds/*/cifsd-tools/ -maxdepth 2 -name "Makefile" | xargs -i sed -i "s/PKG_HASH:=.*/PKG_HASH:=skip/g" {}
 rm -Rf package/feeds/*/aria2/patches/010-Pl*.patch
 sed -i 's/..\/..\/luci.mk/$(TOPDIR)\/feeds\/luci\/luci.mk/g' package/feeds/*/Makefile
-find package/feeds/*/ package/lean/ -maxdepth 3 ! -path "*shadowsocksr-libev*" -name "Makefile" ! -path "*rblibtorrent*" -name "Makefile" | xargs -i sed -i "s/PKG_SOURCE_VERSION:=[0-9a-z]\{15,\}/PKG_SOURCE_VERSION:=latest/g" {}
+find package/feeds/*/ package/lean/ -maxdepth 3 ! -path "*shadowsocksr-libev*" -name "Makefile" ! -path "*rblibtorrent*" -name "Makefile" \
+| xargs -i sed -i "s/PKG_SOURCE_VERSION:=[0-9a-z]\{15,\}/PKG_SOURCE_VERSION:=latest/g" {}
 sed -i 's/$(VERSION) &&/$(VERSION) ;/g' include/download.mk
