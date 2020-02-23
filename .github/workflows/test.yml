@@ -34,13 +34,13 @@ jobs:
     steps:	
     - name: Get current date	
       id: date	
-      run: echo "::set-output name=date::$(date +'%Y-%m-%d')"	
+      run: echo "::set-output name=date::$(date +'%Y-%m-%d-%H')"	
 
     - name: Upload binaries to release	
       uses: svenstaro/upload-release-action@v1-release	
       with:	
         repo_token: ${{ secrets.REPO_TOKEN }}	
         file: /home/runner/work/Actions-OpenWrt/*	
-        tag: Openwrt_trunk_X86_64_$(date +'%Y-%m-%d')
+        tag: Openwrt_trunk_X86_64_${{steps.date.outputs.date}}
         overwrite: true
         file_glob: true
