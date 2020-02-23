@@ -13,9 +13,7 @@ on:
     branches:	
       - master	
   schedule:	
-    - cron: 0 16 * * 6	
-  watch:	
-    types: [started]	
+    - cron: 0 16 * * 6
 
 env:	
   REPO_URL: https://github.com/openwrt/openwrt	
