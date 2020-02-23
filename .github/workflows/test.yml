@@ -11,9 +11,9 @@ name: Build OpenWrt
 on: 	
   push:	
     branches:	
-      - master	
-  schedule:	
-    - cron: 0 16 * * 6
+      - master1	
+  # schedule:	
+    # - cron: 0 16 * * 6
 
 env:	
   REPO_URL: https://github.com/openwrt/openwrt	
