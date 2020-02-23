@@ -9,13 +9,9 @@
 name: Build OpenWrt
 
 on: 
- # release:
- #  types: [published]
- # push:
- #   branches: 
- #     - master
- #   paths:
- #     - '.config'
+  # push:
+  #   branches:
+  #     - master
   schedule:
     - cron: 0 16 * * 6
   watch:
