@@ -32,11 +32,11 @@ jobs:
     steps:	
     - name: Get current date	
       id: date	
-      run: echo "::set-output name=date::$(date +'%m.%d.%Y')"
+      run: echo "::set-output name=date::$(date +'%b.%d,%Y')"
 
-    - name: Upload binaries to release	
-      uses: svenstaro/upload-release-action@v1-release	
-      with:	
+    - name: Upload binaries to release
+      uses: svenstaro/upload-release-action@v1-release
+      with:
         repo_token: ${{ secrets.REPO_TOKEN }}	
         file: /home/runner/work/Actions-OpenWrt/*
         tag: ${{steps.date.outputs.date}}
