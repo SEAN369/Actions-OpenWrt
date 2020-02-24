@@ -11,8 +11,8 @@ sed -i '/PKG_BUILD_DIR/d' package/lean/qBittorrent/Makefile
 sed -i 's/+python/+python3/g' package/lean/luci-app-qbittorrent/Makefile
 sed -i 's/PKG_SOURCE_URL:=.*/PKG_SOURCE_URL:=https:\/\/github.com\/persmule\/amule-dlp/g' package/lean/amule/Makefile
 rm -Rf package/lean/amule/patches/001-amule-dlp.patch
-sed -i "s/\('SaveTime:string'\)/\1 'AutoUpdateTrackers:or(\"true\",\"false\"):true' 'CustomizeTrackersListUrl:string:https:\/\/trackerslist.com\/all.txt' \
-'trackerEnabled:or(\"true\",\"false\"):true' 'trackerPort:integer'/g" package/lean/luci-app-qbittorrent/root/etc/init.d/qbittorrent
+sed -i "s/\('SaveTime:string'\)/\1 'AutoUpdateTrackers:or(\"true\",\"false\"):true' 'CustomizeTrackersListUrl:string:https:\
+\/\/trackerslist.com\/all.txt' 'trackerEnabled:or(\"true\",\"false\"):true' 'trackerPort:integer'/g" package/lean/luci-app-qbittorrent/root/etc/init.d/qbittorrent
 sed -i 's/\("uTP_rate_limited"\)/\1 "AutoUpdateTrackers" "CustomizeTrackersListUrl"/g' package/lean/luci-app-qbittorrent/root/etc/init.d/qbittorrent
 sed -i 's/\("SuperSeeding"\)/\1 "trackerEnabled" "trackerPort"/g' package/lean/luci-app-qbittorrent/root/etc/init.d/qbittorrent
 #git clone https://github.com/garypang13/aria2-patch package/feeds/packages/aria2/patches/
