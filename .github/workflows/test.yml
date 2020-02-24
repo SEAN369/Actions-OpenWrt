@@ -40,7 +40,7 @@ jobs:
       uses: svenstaro/upload-release-action@v1-release	
       with:	
         repo_token: ${{ secrets.REPO_TOKEN }}	
-        file: /home/runner/work/Actions-OpenWrt/*	
+        file: /home/runner/work/Actions-OpenWrt/*
         tag: ${{steps.date.outputs.date}}
         asset_name: ${{steps.date.outputs.dat}}
         overwrite: true
