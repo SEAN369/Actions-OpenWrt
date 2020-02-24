@@ -34,7 +34,7 @@ jobs:
       id: date	
       run: |
         echo "::set-output name=date::$(date +'%m/%d/%H')"
-        echo "::set-output name=date2::$(date +'%b %d, %Y')"
+        echo "::set-output name=dat::$(date +'%b %d, %Y')"
 
     - name: Upload binaries to release	
       uses: svenstaro/upload-release-action@v1-release	
@@ -42,6 +42,6 @@ jobs:
         repo_token: ${{ secrets.REPO_TOKEN }}	
         file: /home/runner/work/Actions-OpenWrt/*	
         tag: ${{steps.date.outputs.date}}
-        asset_name: ${{steps.date.outputs.date2}}
+        asset_name: ${{steps.date.outputs.dat}}
         overwrite: true
         file_glob: true
