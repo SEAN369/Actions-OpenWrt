@@ -114,9 +114,7 @@ jobs:
         
     - name: Get current date
       id: date
-      run: |
-        echo "::set-output name=date::$(date +'%f/%e/%H')"
-        echo "::set-output name=date2::$(date +'%b %d, %Y')"
+      run: echo "::set-output name=date::$(date +'%m/%d,%Y')"
       
     - name: Upload firmware directory
       uses: actions/upload-artifact@master
@@ -132,6 +130,5 @@ jobs:
         repo_token: ${{ secrets.REPO_TOKEN }}
         file: ${{ env.FIRMWARE }}/*
         tag: ${{steps.date.outputs.date}}
-        asset_name: ${{steps.date.outputs.date2}}
         overwrite: true
         file_glob: true
