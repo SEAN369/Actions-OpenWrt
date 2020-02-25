@@ -73,6 +73,7 @@ package/feeds/*/luci-app-firewall/htdocs/luci-static/resources/view/firewall/zon
 sed -i "s/option forward		REJECT/option forward		REJECT\n	option fullcone	1/g" package/network/config/firewall/files/firewall.config
 sed -i "s/option bbr '0'/option bbr '1'/g" package/*/luci-app-flowoffload/root/etc/config/flowoffload
 sed -i "s/cgi-bin\///g" package/feeds/*/nginx/files-luci-support/luci.locations
+sed -i "s/include conf.d/index luci\n include conf.d/g" package/feeds/*/nginx/files/_lan.conf
 getversion(){
 if !(basename $(curl -Ls -o /dev/null -w %{url_effective} https://github.com/$1/releases/latest) | grep -o -E "[0-9.]+")
 then
