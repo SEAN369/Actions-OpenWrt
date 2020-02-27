@@ -71,7 +71,6 @@ sed -i "s/option forward		REJECT/option forward		REJECT\n	option fullcone	1/g" p
 sed -i "s/option bbr '0'/option bbr '1'/g" package/*/luci-app-flowoffload/root/etc/config/flowoffload
 sed -i "s/cgi-bin\///g" package/feeds/*/nginx/files-luci-support/luci.locations
 sed -i "s/include conf.d/index luci\n include conf.d/g" package/feeds/*/nginx/files/_lan.conf
-sed -i "s/ADDITIONAL_MODULES:=/ADDITIONAL_MODULES:=--with-http_ssl_module/g" package/feeds/*/nginx/Makefile
 sed -i 's/main.extra_setting=""/main.extra_setting="dht-file-path=\/usr\/share\/aria2\/dht.dat"/g' package/feeds/*/luci-app-aria2/root/etc/uci-defaults/40_luci-aria2
 getversion(){
 if !(basename $(curl -Ls -o /dev/null -w %{url_effective} https://github.com/$1/releases/latest) | grep -o -E "[0-9.]+")
