@@ -107,7 +107,7 @@ jobs:
       if: env.UPLOAD_FIRMWARE == 'true' && !cancelled()
       run: |
         mkdir firmware && find openwrt/bin/targets/*/*/* -maxdepth 0 -name "*combined-squashfs*" | xargs -i mv -f {} ./firmware/
-        mv openwrt/.config  ./firmware/config
+        mv openwrt/.config  ./firmware/config.txt
         cd firmware
         echo "::set-env name=FIRMWARE::$(pwd)"
         echo "::set-output name=status::success"
