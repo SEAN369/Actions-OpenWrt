@@ -86,8 +86,9 @@ sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=$(getversion tsl0922/ttyd)/g" package/fee
 sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=$(getversion docker/docker-ce)/g" package/feeds/*/docker-ce/Makefile
 sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=$(getversion cifsd-team/cifsd)/g" package/feeds/*/ksmbd/Makefile
 sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=$(getversion cifsd-team/cifsd-tools)/g" package/feeds/*/ksmbd-tools/Makefile
+sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=$(getversion arvidn/libtorrent)/g" package/lean/rblibtorrent/Makefile
 find package/feeds/*/aria2/ package/feeds/*/acme/ package/feeds/*/netdata/ package/feeds/*/ttyd/ package/feeds/*/docker-ce/ package/lean/v2ray/ \
-package/feeds/*/ksmbd/ package/feeds/*/ksmbd-tools/ -maxdepth 2 -name "Makefile" | xargs -i sed -i "s/PKG_HASH:=.*/PKG_HASH:=skip/g" {}
+package/feeds/*/ksmbd/ package/feeds/*/ksmbd-tools/ package/lean/rblibtorrent/ -maxdepth 2 -name "Makefile" | xargs -i sed -i "s/PKG_HASH:=.*/PKG_HASH:=skip/g" {}
 rm -Rf package/feeds/*/aria2/patches/010-Pl*.patch
 sed -i 's/..\/..\/luci.mk/$(TOPDIR)\/feeds\/luci\/luci.mk/g' package/feeds/*/Makefile
 find package/feeds/*/ package/lean/ -maxdepth 3 ! -path "*shadowsocksr-libev*" -name "Makefile" ! -path "*rblibtorrent*" -name "Makefile" \
