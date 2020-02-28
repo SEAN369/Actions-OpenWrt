@@ -5,8 +5,8 @@ rm -Rf package/lean/luci-app-ssr-plus
 rm -Rf package/lean/qBittorrent/patches
 sed -i 's/PKG_SOURCE_URL:=.*/PKG_SOURCE_URL:=https:\/\/github.com\/c0re100\/qBittorrent-Enhanced-Edition/g' package/lean/qBittorrent/Makefile
 sed -i 's/PKG_HASH.*/PKG_SOURCE_PROTO:=git\nPKG_SOURCE_VERSION:=latest/g' package/lean/qBittorrent/Makefile
-rm -Rf feeds/packages/libs/boost
-svn co --force https://github.com/coolsnowwolf/packages/trunk/libs/boost feeds/packages/libs/boost && svn revert -R feeds/packages/libs/boost
+# rm -Rf feeds/packages/libs/boost
+# svn co --force https://github.com/coolsnowwolf/packages/trunk/libs/boost feeds/packages/libs/boost && svn revert -R feeds/packages/libs/boost
 sed -i '/PKG_BUILD_DIR/d' package/lean/qBittorrent/Makefile
 sed -i 's/+python/+python3/g' package/lean/luci-app-qbittorrent/Makefile
 sed -i 's/PKG_SOURCE_URL:=.*/PKG_SOURCE_URL:=https:\/\/github.com\/persmule\/amule-dlp/g' package/lean/amule/Makefile
@@ -81,7 +81,7 @@ fi
 sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=$(getversion v2ray/v2ray-core)/g" package/lean/v2ray/Makefile
 sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=$(getversion aria2/aria2)/g" package/feeds/*/aria2/Makefile
 sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=$(getversion Neilpang/acme.sh)/g" package/feeds/*/acme/Makefile
-# sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=$(getversion netdata/netdata)/g" package/feeds/*/netdata/Makefile
+sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=$(getversion netdata/netdata)/g" package/feeds/*/netdata/Makefile
 sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=$(getversion tsl0922/ttyd)/g" package/feeds/*/ttyd/Makefile
 sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=$(getversion docker/docker-ce)/g" package/feeds/*/docker-ce/Makefile
 sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=$(getversion cifsd-team/cifsd)/g" package/feeds/*/ksmbd/Makefile
