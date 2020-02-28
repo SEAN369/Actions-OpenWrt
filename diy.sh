@@ -15,7 +15,7 @@ rm -Rf package/feeds/packages/php7
 svn co https://github.com/openwrt/packages/branches/openwrt-19.07/lang/php7 package/feeds/packages/php7
 git clone https://github.com/mayswind/AriaNg-DailyBuild /files/www/ng
 git clone https://github.com/MatteoRagni/AmuleWebUI-Reloaded files/usr/share/amule/webserver/AmuleWebUI-Reloaded
-git clone https://github.com/kalcaddle/KodExplorer files/www/nas
+git clone https://github.com/kalcaddle/KodExplorer files/www/kod
 git clone https://github.com/P3TERX/aria2.conf files/usr/share/aria2
 
 cd package/feeds
@@ -54,9 +54,8 @@ sed -i "s/sed '\/^$\/d' \"\$config_file_tmp\" >\"\$config_file\"/cat \/usr\/shar
 \"\$config_file\"\nsed '\/^$\/d' \"\$config_file_tmp\" >> \"\$config_file\"/g" package/feeds/packages/aria2/files/aria2.init
 sed -i 's/extra_settings/extra_setting/g' package/feeds/*/aria2/files/aria2.init
 sed -i '$a /etc/smartdns' package/base-files/files/lib/upgrade/keep.d/base-files-essential
-sed -i '$a /www/nas/data' package/base-files/files/lib/upgrade/keep.d/base-files-essential
-sed -i '$a /www/nas/plugins' package/base-files/files/lib/upgrade/keep.d/base-files-essential
-sed -i '$a /www/nas/config/define.php' package/base-files/files/lib/upgrade/keep.d/base-files-essential
+sed -i '$a /www/nas' package/base-files/files/lib/upgrade/keep.d/base-files-essential
+#sed -i '$a /www/nas/plugins' package/base-files/files/lib/upgrade/keep.d/base-files-essential
 sed -i '$a /etc/qBittorrent' package/base-files/files/lib/upgrade/keep.d/base-files-essential
 find target/linux/x86 -name "config*" | xargs -i sed -i '$a # CONFIG_WLAN is not set\n# CONFIG_WIRELESS is not set\nCONFIG_NETFILTER_XT_MATCH_STRING=m' {}
 #sed -i 's/fast_open="0"/fast_open="1"/g' package/*/luci-app-passwall/root/usr/share/passwall/subscription.sh
