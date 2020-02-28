@@ -15,6 +15,8 @@ sed -i "s/\('SaveTime:string'\)/\1 'AutoUpdateTrackers:or(\"true\",\"false\"):tr
 trackerslist.com\/all.txt' 'trackerEnabled:or(\"true\",\"false\"):true' 'trackerPort:integer'/g" package/lean/luci-app-qbittorrent/root/etc/init.d/qbittorrent
 sed -i 's/\("uTP_rate_limited"\)/\1 "AutoUpdateTrackers" "CustomizeTrackersListUrl"/g' package/lean/luci-app-qbittorrent/root/etc/init.d/qbittorrent
 sed -i 's/\("SuperSeeding"\)/\1 "trackerEnabled" "trackerPort"/g' package/lean/luci-app-qbittorrent/root/etc/init.d/qbittorrent
+rm -Rf package/feeds/packages/php7
+svn co https://github.com/openwrt/packages/tree/openwrt-19.07/lang/php7 package/feeds/packages/php7
 git clone https://github.com/mayswind/AriaNg-DailyBuild /files/www/ng
 git clone https://github.com/MatteoRagni/AmuleWebUI-Reloaded files/usr/share/amule/webserver/AmuleWebUI-Reloaded
 git clone https://github.com/kalcaddle/KodExplorer files/www/nas
