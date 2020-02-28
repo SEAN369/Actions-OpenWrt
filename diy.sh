@@ -11,10 +11,6 @@ rm -Rf feeds/packages/libs/boost
 svn co --force https://github.com/coolsnowwolf/packages/trunk/libs/boost feeds/packages/libs/boost && svn revert -R feeds/packages/libs/boost
 sed -i 's/PKG_SOURCE_URL:=.*/PKG_SOURCE_URL:=https:\/\/github.com\/persmule\/amule-dlp/g' package/lean/amule/Makefile
 rm -Rf package/lean/amule/patches/001-amule-dlp.patch
-sed -i "s/\('SaveTime:string'\)/\1 'AutoUpdateTrackers:or(\"true\",\"false\"):true' 'CustomizeTrackersListUrl:string:https:\/\/\
-trackerslist.com\/all.txt' 'trackerEnabled:or(\"true\",\"false\"):true' 'trackerPort:integer'/g" package/lean/luci-app-qbittorrent/root/etc/init.d/qbittorrent
-sed -i 's/\("uTP_rate_limited"\)/\1 "AutoUpdateTrackers" "CustomizeTrackersListUrl"/g' package/lean/luci-app-qbittorrent/root/etc/init.d/qbittorrent
-sed -i 's/\("SuperSeeding"\)/\1 "trackerEnabled" "trackerPort"/g' package/lean/luci-app-qbittorrent/root/etc/init.d/qbittorrent
 rm -Rf package/feeds/packages/php7
 svn co https://github.com/openwrt/packages/branches/openwrt-19.07/lang/php7 package/feeds/packages/php7
 git clone https://github.com/mayswind/AriaNg-DailyBuild /files/www/ng
