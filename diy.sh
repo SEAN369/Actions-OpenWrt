@@ -9,14 +9,16 @@ sed -i '/PKG_BUILD_DIR/d' package/lean/qBittorrent/Makefile
 sed -i 's/+python$/+python3/g' package/lean/luci-app-qbittorrent/Makefile
 rm -Rf feeds/packages/libs/boost
 svn co --force https://github.com/coolsnowwolf/packages/trunk/libs/boost feeds/packages/libs/boost && svn revert -R feeds/packages/libs/boost
-sed -i 's/PKG_SOURCE_URL:=.*/PKG_SOURCE_URL:=https:\/\/github.com\/persmule\/amule-dlp/g' package/lean/amule/Makefile
-rm -Rf package/lean/amule/patches/001-amule-dlp.patch
+# sed -i 's/PKG_SOURCE_URL:=.*/PKG_SOURCE_URL:=https:\/\/github.com\/persmule\/amule-dlp/g' package/lean/amule/Makefile
+# rm -Rf package/lean/amule/patches/001-amule-dlp.patch
 rm -Rf package/feeds/packages/php7
 svn co https://github.com/openwrt/packages/branches/openwrt-19.07/lang/php7 package/feeds/packages/php7
 git clone https://github.com/mayswind/AriaNg-DailyBuild /files/www/ng
 git clone https://github.com/MatteoRagni/AmuleWebUI-Reloaded files/usr/share/amule/webserver/AmuleWebUI-Reloaded
 git clone https://github.com/kalcaddle/KodExplorer files/www/kod
 git clone https://github.com/P3TERX/aria2.conf files/usr/share/aria2
+rm -Rf package/lean/antileech/src/*
+git clone https://github.com/persmule/amule-dlp.antiLeech package/lean/antileech/src
 
 cd package/feeds
 #git clone https://github.com/Lienol/openwrt-package
