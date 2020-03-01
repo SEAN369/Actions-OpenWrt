@@ -59,7 +59,8 @@ sed -i '$a /www/nas' package/base-files/files/lib/upgrade/keep.d/base-files-esse
 #sed -i '$a /www/nas/plugins' package/base-files/files/lib/upgrade/keep.d/base-files-essential
 sed -i '$a /etc/qBittorrent' package/base-files/files/lib/upgrade/keep.d/base-files-essential
 sed -i '$a /root/amule' package/base-files/files/lib/upgrade/keep.d/base-files-essential
-find target/linux/x86 -name "config*" | xargs -i sed -i '$a # CONFIG_WLAN is not set\n# CONFIG_WIRELESS is not set\nCONFIG_NETFILTER_XT_MATCH_STRING=m\nCONFIG_HWMON=y\nCONFIG_SENSORS_CORETEMP=y\nCONFIG_CPU_FREQ_STAT_DETAILS=y' {}
+find target/linux/x86 -name "config*" | xargs -i sed -i '$a # CONFIG_WLAN is not set\n# CONFIG_WIRELESS is not set\
+\nCONFIG_NETFILTER_XT_MATCH_STRING=m\nCONFIG_HWMON=y\nCONFIG_SENSORS_CORETEMP=y' {}
 #sed -i 's/fast_open="0"/fast_open="1"/g' package/*/luci-app-passwall/root/usr/share/passwall/subscription.sh
 sed -i 's/if test_proxy/sleep 3600\nif test_proxy/g' package/*/luci-app-vssr/root/usr/bin/vssr-switch
 sed -i 's/.*fast_open = 0/fast_open = 1/g' package/*/luci-app-vssr/root/usr/share/vssr/subscribe.lua
