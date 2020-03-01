@@ -52,9 +52,8 @@ sed -i 's/+uhttpd //g' feeds/luci/collections/luci/Makefile
 rm -Rf package/lean/wsdd2/patches/001-add_uuid_boot_id.patch
 #rm -Rf package/feeds/packages/haproxy/files/haproxy.init
 #sed -i 's/conf.$section/conf/g' package/feeds/packages/aria2/files/aria2.init
-sed -i "s/sed '\/^$\/d' \"\$config_file_tmp\" >\"\$config_file\"/cat \/usr\/share\/aria2\/aria2.conf > \"\$config_file\"\necho '' >> \
+sed -i "s/sed '\/^$\/d' \"\$config_file_tmp\" >\"\$config_file\"/cd \/usr\/share\/aria2 \&\& .\/tracker.sh\ncat \/usr\/share\/aria2\/aria2.conf > \"\$config_file\"\necho '' >> \
 \"\$config_file\"\nsed '\/^$\/d' \"\$config_file_tmp\" >> \"\$config_file\"/g" package/feeds/packages/aria2/files/aria2.init
-sed -i 's/extra_settings/extra_setting/g' package/feeds/*/aria2/files/aria2.init
 sed -i '$a /etc/smartdns' package/base-files/files/lib/upgrade/keep.d/base-files-essential
 sed -i '$a /www/nas' package/base-files/files/lib/upgrade/keep.d/base-files-essential
 #sed -i '$a /www/nas/plugins' package/base-files/files/lib/upgrade/keep.d/base-files-essential
