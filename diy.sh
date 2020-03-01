@@ -57,7 +57,7 @@ sed -i "s/sed '\/^$\/d' \"\$config_file_tmp\" >\"\$config_file\"/cd \/usr\/share
 sed -i '$a /etc/smartdns' package/base-files/files/lib/upgrade/keep.d/base-files-essential
 sed -i '$a /www/nas/data' package/base-files/files/lib/upgrade/keep.d/base-files-essential
 sed -i '$a /www/nas/plugins' package/base-files/files/lib/upgrade/keep.d/base-files-essential
-sed -i '$a /www/nas/config/define.php' package/base-files/files/lib/upgrade/keep.d/base-files-essential
+sed -i '$a /www/nas/config/setting_user.php' package/base-files/files/lib/upgrade/keep.d/base-files-essential
 sed -i '$a /etc/qBittorrent' package/base-files/files/lib/upgrade/keep.d/base-files-essential
 sed -i '$a /root/amule' package/base-files/files/lib/upgrade/keep.d/base-files-essential
 find target/linux/x86 -name "config*" | xargs -i sed -i '$a # CONFIG_WLAN is not set\n# CONFIG_WIRELESS is not set\
