@@ -15,7 +15,7 @@ rm -Rf package/feeds/packages/php7
 svn co https://github.com/openwrt/packages/branches/openwrt-19.07/lang/php7 package/feeds/packages/php7
 git clone https://github.com/mayswind/AriaNg-DailyBuild /files/www/ng
 git clone https://github.com/MatteoRagni/AmuleWebUI-Reloaded files/usr/share/amule/webserver/AmuleWebUI-Reloaded
-git clone https://github.com/kalcaddle/KodExplorer files/www/kod
+git clone https://github.com/kalcaddle/KodExplorer files/www/nas
 git clone https://github.com/P3TERX/aria2.conf files/usr/share/aria2
 rm -Rf package/lean/antileech/src/*
 git clone https://github.com/persmule/amule-dlp.antiLeech package/lean/antileech/src
