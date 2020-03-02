@@ -15,7 +15,7 @@ on:
   schedule:
     - cron: 0 16 * * 6
   watch:
-    types: [started]
+    types: started
 
 env:
   REPO_URL: https://github.com/openwrt/openwrt
@@ -109,7 +109,7 @@ jobs:
         mkdir firmware && find openwrt/bin/targets/*/*/* -maxdepth 0 -name "*combined-squashfs*" | xargs -i mv -f {} ./firmware/
         mv openwrt/.config  ./firmware/config.txt
         cd firmware
-        echo "::set-env name=FIRMWARE::$(pwd)"
+        echo "::set-env name=FIRMWARE::$PWD"
         echo "::set-output name=status::success"
         
     - name: Get current date
