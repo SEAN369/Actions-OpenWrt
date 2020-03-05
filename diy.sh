@@ -47,6 +47,7 @@ cd -
 
 cp -Rf ../diy/* ./
 sed -i 's/root\/.aria2/usr\/share\/aria2/g' files/usr/share/aria2/aria2.conf
+sed -i 's/root\/Download/data\/download\/aria2/g' files/usr/share/aria2/*
 sed -i '/rpc-secret/d' files/usr/share/aria2/aria2.conf
 sed -i 's/+uhttpd //g' feeds/luci/collections/luci/Makefile
 rm -Rf package/lean/wsdd2/patches/001-add_uuid_boot_id.patch
