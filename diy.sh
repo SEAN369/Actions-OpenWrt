@@ -7,8 +7,8 @@ sed -i 's/PKG_SOURCE_URL:=.*/PKG_SOURCE_URL:=https:\/\/github.com\/c0re100\/qBit
 sed -i 's/PKG_HASH.*/PKG_SOURCE_PROTO:=git\nPKG_SOURCE_VERSION:=latest/g' package/lean/qBittorrent/Makefile
 sed -i '/PKG_BUILD_DIR/d' package/lean/qBittorrent/Makefile
 sed -i 's/+python$/+python3/g' package/lean/luci-app-qbittorrent/Makefile
-rm -Rf feeds/packages/libs/boost
-svn co --force https://github.com/coolsnowwolf/packages/trunk/libs/boost feeds/packages/libs/boost && svn revert -R feeds/packages/libs/boost
+# rm -Rf feeds/packages/libs/boost
+# svn co --force https://github.com/coolsnowwolf/packages/trunk/libs/boost feeds/packages/libs/boost && svn revert -R feeds/packages/libs/boost
 # sed -i 's/PKG_SOURCE_URL:=.*/PKG_SOURCE_URL:=https:\/\/github.com\/persmule\/amule-dlp/g' package/lean/amule/Makefile
 # rm -Rf package/lean/amule/patches/001-amule-dlp.patch
 rm -Rf package/feeds/packages/php7
